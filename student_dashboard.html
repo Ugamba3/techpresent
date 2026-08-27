@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TechStars — Student Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="shortcut icon" href="media/images/TechStars-icon.png" type="image/x-icon">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="asset/style.css">
+</head>
+<body>
+
+<section class="app">
+
+  <!--  SIDEBAR  -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark"><img src="media/images/TechStars_Logo.png" alt=""></div>
+      <span class="brand-name">Center For Information and Telecommunication Engineering</span>
+    </div>
+
+    <nav class="nav">
+      <span class="nav-label">Main</span>
+      <button class="nav-item active" data-page="dashboard">
+        <i class="fa-solid fa-house"></i><span>Dashboard</span>
+      </button>
+
+      <button class="nav-item" data-page="students">
+        <i class="fa-solid fa-users"></i><span>Student Profiles</span>
+      </button>
+
+      <button class="nav-item" data-page="courses">
+        <i class="fa-solid fa-book-open"></i><span>Courses</span>
+      </button>
+      <button class="nav-item" data-page="attendance">
+        <i class="fa-solid fa-calendar-check"></i><span>Attendance</span>
+      </button>
+      <button class="nav-item" data-page="grades">
+        <i class="fa-solid fa-chart-line"></i><span>Grades</span>
+      </button>
+      <!-- <button class="nav-item" data-page="assignments">
+        <i class="fa-solid fa-clipboard-list"></i><span>Assignments</span>
+      </button> -->
+      <!-- <button class="nav-item" data-page="timetable">
+        <i class="fa-solid fa-table-cells-large"></i><span>Timetable</span>
+      </button> -->
+      <button class="nav-item" data-page="announcements">
+        <i class="fa-solid fa-bullhorn"></i><span>Announcements</span>
+      </button>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="storage-card">
+        <i class="fa-solid fa-fire"></i>
+        <div>
+          <p class="storage-title">Coding Bootcamp</p>
+          <p class="storage-sub">Batch of 2026</p>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!--  MAIN  -->
+  <main class="main">
+
+    <!-- Topbar -->
+    <header class="topbar">
+
+      <!-- SEARCH BAR -->
+      <div class="search-bar" id="searchBar">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="searchInput" placeholder="Search courses, assignments, people…" autocomplete="off">
+
+        <!-- Results of search-->
+        <div class="search-results" id="searchResults"></div>
+      </div>
+
+      <div class="topbar-actions">
+
+        <div class="dashboard-nav">
+          <a href="index.html">home</a>
+          <a href="pc.html">partnership</a>
+          <a href="order.html">materials</a>
+          <a href="#" class="active">dashboard</a>
+          <a href="about.html">about us</a>
+        </div>
+
+        <div class="divider-v"></div>
+
+        <!-- NOTIFICATION BUTTON -->
+        <div class="popover-wrap">
+          <button class="icon-btn" id="notifBtn" aria-label="Notifications">
+            <i class="fa-regular fa-bell"></i><span class="dot"></span>
+          </button>
+
+          <div class="popover" id="notifPopover">
+            <div class="popover-head">
+              <h4>Notifications</h4>
+              <span class="popover-count">3 new</span>
+            </div>
+            <div class="popover-list">
+              <div class="popover-item">
+                <div class="popover-icon" style="background:#dbeafe;color:var(--primary)"><i class="fa-solid fa-clipboard-check"></i></div>
+                <div>
+                  <p class="popover-title">Chemistry lab report due Thursday</p>
+                  <p class="popover-sub">2 hours ago</p>
+                </div>
+              </div>
+              <div class="popover-item">
+                <div class="popover-icon" style="background:#fef9c3;color:#a16207"><i class="fa-solid fa-clock"></i></div>
+                <div>
+                  <p class="popover-title">You were marked late on Jul 30</p>
+                  <p class="popover-sub">1 day ago</p>
+                </div>
+              </div>
+              <div class="popover-item">
+                <div class="popover-icon" style="background:#dcfce7;color:var(--success)"><i class="fa-solid fa-chart-line"></i></div>
+                <div>
+                  <p class="popover-title">New grade posted for Computer Networking</p>
+                  <p class="popover-sub">2 days ago</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MESSAGES BUTTON -->
+        <div class="popover-wrap">
+          <button class="icon-btn" id="msgBtn" aria-label="Messages">
+            <i class="fa-regular fa-envelope"></i>
+          </button>
+
+          <div class="popover" id="msgPopover">
+            <div class="popover-head">
+              <h4>Messages</h4>
+              <span class="popover-count">2 new</span>
+            </div>
+            <div class="popover-list">
+              <div class="popover-item">
+                <div class="popover-icon" style="background:#dbeafe;color:var(--primary)"><i class="fa-solid fa-user"></i></div>
+                <div>
+                  <p class="popover-title">Instructor Precious: "Please resubmit part 2"</p>
+                  <p class="popover-sub">Web Development · 30 mins ago</p>
+                </div>
+              </div>
+              <div class="popover-item">
+                <div class="popover-icon" style="background:#f3e8ff;color:#a855f7"><i class="fa-solid fa-people-group"></i></div>
+                <div>
+                  <p class="popover-title">Data Science Study Group: "Meeting moved to 5pm"</p>
+                  <p class="popover-sub">Study group · 3 hours ago</p>
+                </div>
+              </div>
+              <div class="popover-item">
+                <div class="popover-icon" style="background:#dcfce7;color:var(--success)"><i class="fa-solid fa-building-columns"></i></div>
+                <div>
+                  <p class="popover-title">School Portal: "Fees receipt available"</p>
+                  <p class="popover-sub">Yesterday</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="page active" id="page-dashboard">
+      <div class="page-head">
+        <div>
+          <h1>Bootcamp Overview</h1>
+        </div>
+        <button class="close-btn" id="openCalendar">
+          <i class="fa-regular fa-calendar"></i> View calendar</button>
+      </div>
+
+      <div class="grid-2">
+        <div class="card fade-in">
+          <div class="card-head">
+            <h3>Upcoming Live Sessions</h3>
+            <a href="#" class="link" data-page="announcements">View announcements</a>
+          </div>
+          <div class="next-class">
+            <div class="nc-time"><i class="fa-regular fa-clock"></i> 09:40 AM · Techstar Cohort</div>
+            <div class="nc-row">
+              <div class="nc-subject">
+                <div class="subject-icon" style="background:#dbeafe;color:var(--primary)"><i class="fa fa-terminal"></i></div>
+                <div>
+                  <p class="nc-title">Python & Data Structures</p>
+                  <p class="nc-sub">Instructor Jonathan</p>
+                </div>
+              </div>
+              <span class="vs">then</span>
+              <div class="nc-subject">
+                <div class="subject-icon" style="background:#ffedd5;color:var(--secondary)"><i class="fa-solid fa-code"></i></div>
+                <div>
+                  <p class="nc-title">Web Development</p>
+                  <p class="nc-sub">Instructor Precious</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card fade-in delay1">
+          <div class="card-head">
+            <h3>Cohort Performance</h3>
+            <a href="#" class="link" data-page="grades">View all grades</a>
+          </div>
+          <div class="perf-bar">
+            <span class="seg seg-a" style="width:55%">A</span>
+            <span class="seg seg-b" style="width:30%">B</span>
+            <span class="seg seg-c" style="width:15%">C</span>
+          </div>
+          <div class="perf-stats">
+            <div><p class="ps-num">6</p><p class="ps-label">Tracks</p></div>
+            <div><p class="ps-num">55%</p><p class="ps-label">Grade A</p></div>
+            <div><p class="ps-num">30%</p><p class="ps-label">Grade B</p></div>
+            <div><p class="ps-num">15%</p><p class="ps-label">Grade C</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-mixed">
+        <div class="card span-2 fade-in delay2">
+          <div class="card-head">
+            <h3>Active Track Projects</h3>
+            <a href="#" class="link" data-page="assignments">View all</a>
+          </div>
+          <table class="table">
+            <thead>
+              <tr><th>#</th><th>Track</th><th>Project / Task</th><th>Due</th><th>Submission Rate</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td><span class="dot-tag" style="background:var(--primary)"></span>Robotics & AI</td>
+                <td>Artificial intelligence integration</td>
+                <td>Aug 6</td>
+                <td><span class="badge badge-warning">75% Submitted</span></td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td><span class="dot-tag" style="background:var(--secondary)"></span>Web Development</td>
+                <td>Responsive Web Applications</td>
+                <td>Aug 7</td>
+                <td><span class="badge badge-warning">60% Submitted</span></td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td><span class="dot-tag" style="background:#22c55e"></span>Data Analytics</td>
+                <td>Predictive Modeling Analytics</td>
+                <td>Aug 9</td>
+                <td><span class="badge badge-success">92% Submitted</span></td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td><span class="dot-tag" style="background:#a855f7"></span>UI/UX Design</td>
+                <td>Building Design System Interfaces</td>
+                <td>Aug 11</td>
+                <td><span class="badge badge-neutral">In Progress</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="stack fade-in delay3">
+          <div class="card stat-card fade-in delay1">
+            <div class="stat-icon" style="background:#dbeafe;color:var(--primary)"><i class="fa-solid fa-users"></i></div>
+            <div>
+              <p class="stat-label">Total Students</p>
+              <p class="stat-value">120</p>
+            </div>
+          </div>
+          <div class="card stat-card fade-in delay2">
+            <div class="stat-icon" style="background:#ffedd5;color:var(--secondary)"><i class="fa-solid fa-calendar-check"></i></div>
+            <div>
+              <p class="stat-label">Avg Attendance</p>
+              <p class="stat-value">91%</p>
+            </div>
+          </div>
+          <div class="card stat-card fade-in delay3">
+            <div class="stat-icon" style="background:#dcfce7;color:var(--success)"><i class="fa-solid fa-layer-group"></i></div>
+            <div>
+              <p class="stat-label">Active Tracks</p>
+              <p class="stat-value">6</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="promo-banner fade-in">
+        <div>
+          <p class="promo-tag">Important Reminder</p>
+          <h2>Capstones projects submissions due<br>before Thursday midnight</h2>
+          <button class="btn-light" id="promoAssignmentsBtn" data-page="assignments">Go to projects</button>
+        </div>
+        <div class="promo-art" aria-hidden="true">
+          <div class="blob blob-1"></div>
+          <div class="blob blob-2"></div>
+          <i class="fa-solid fa-laptop-code promo-icon"></i>
+        </div>
+      </div>
+    </section>
+
+    <!-- STUDENT PROFILES -->
+    <section class="page" id="page-students">
+      <div class="page-head">
+        <div>
+          <p class="eyebrow">Class of 2025/2026</p>
+          <h1>Student Profiles</h1>
+        </div>
+      </div>
+
+      <!-- JS will inject cards here -->
+      <div class="students-list"></div>
+
+      <!-- Instructors Section -->
+      <div class="instructors-section">
+        <div class="instructors-header">
+          <div>
+            <p class="eyebrow">Meet your mentors</p>
+            <h2>Instructors</h2>
+          </div>
+          <div class="slider-nav">
+            <button class="slider-btn slider-prev" id="instructorPrev" aria-label="Previous instructor">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button class="slider-btn slider-next" id="instructorNext" aria-label="Next instructor">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+        <div class="instructors-slider" id="instructorsSlider">
+          <!-- JS will inject instructor cards here -->
+        </div>
+        <div class="slider-dots" id="sliderDots"></div>
+      </div>
+    </section>
+
+    <!-- COURSES OFFERED  -->
+     <section class="page" id="page-courses">
+      <div class="page-head">
+        <div>
+          <p class="eyebrow">Academic year 2025/2026</p>
+          <h1>Our Courses</h1>
+        </div>
+
+        <!-- FILTER BUTTON -->
+        <!-- <div class="popover-wrap">
+          <button class="btn-outline" id="filterBtn"><i class="fa-solid fa-filter"></i> Filter</button>
+          <div class="popover popover-menu" id="filterPopover">
+            <button class="popover-menu-item" data-sort="az"><i class="fa-solid fa-arrow-down-a-z"></i> Name (A - Z)</button>
+            <button class="popover-menu-item" data-sort="za"><i class="fa-solid fa-arrow-down-z-a"></i> Name (Z - A)</button>
+            <button class="popover-menu-item" data-sort="progress-high"><i class="fa-solid fa-arrow-down-wide-short"></i> Progress (high - low)</button>
+            <button class="popover-menu-item" data-sort="progress-low"><i class="fa-solid fa-arrow-up-wide-short"></i> Progress (low - high)</button>
+            <button class="popover-menu-item" data-sort="default"><i class="fa-solid fa-rotate-left"></i> Default order</button>
+          </div>
+        </div> -->
+      </div>
+
+      <div class="course-grid" id="courseGrid">
+        <div class="card course-card fade-in delay" data-name="Web Development" data-progress="78">
+          <div class="subject-icon" style="background:#dbeafe;color:var(--primary)"><i class="fa-solid fa-code"></i></div>
+          <h3>Web Development</h3>
+          <p class="muted">Instructor Precious</p>
+          <!-- <div class="progress-track"><div class="progress-fill" style="width:78%;background:var(--primary)"></div></div>
+          <p class="progress-label">78% complete</p> -->
+        </div>
+        <div class="card course-card fade-in delay1" data-name="UI/UX Design" data-progress="65">
+          <div class="subject-icon" style="background:#ffedd5;color:var(--secondary)"><i class="fa-solid fa-palette"></i></div>
+          <h3>UI/UX Design</h3>
+          <p class="muted">Instructor Excel</p>
+          <!-- <div class="progress-track"><div class="progress-fill" style="width:65%;background:var(--secondary)"></div></div>
+          <p class="progress-label">65% complete</p> -->
+        </div>
+        <div class="card course-card fade-in delay2" data-name="Ph.D. in Communication Engineering" data-progress="88">
+          <div class="subject-icon" style="background:#dcfce7;color:var(--success)"><i class="fa-solid fa-tower-broadcast"></i></div>
+          <h3>Graphic Design</h3>
+          <p class="muted">Sir. Jonathan</p>
+          <!-- <div class="progress-track"><div class="progress-fill" style="width:88%;background:var(--success)"></div></div>
+          <p class="progress-label">88% complete</p> -->
+        </div>
+        <div class="card course-card fade-in delay3" data-name="Robotics" data-progress="52">
+          <div class="subject-icon" style="background:#f3e8ff;color:#a855f7"><i class="fa-solid fa-robot"></i></div>
+          <h3>Robotics & AI</h3>
+          <p class="muted">Mr. Gameliel</p>
+          <!-- <div class="progress-track"><div class="progress-fill" style="width:52%;background:#a855f7"></div></div>
+          <p class="progress-label">52% complete</p> -->
+        </div>
+        <div class="card course-card fade-in delay4" data-name="Master's in Embedded Artificial Intelligence" data-progress="70">
+          <div class="subject-icon" style="background:#fee2e2;color:var(--danger)"><i class="fa-solid fa-brain"></i></div>
+          <h3>MicroSoft Office</h3>
+          <p class="muted">Mr. Yusuf</p>
+          <!-- <div class="progress-track"><div class="progress-fill" style="width:70%;background:var(--danger)"></div></div>
+          <p class="progress-label">70% complete</p> -->
+        </div>
+        <div class="card course-card fade-in delay5" data-name="Data Analytics" data-progress="95">
+          <div class="subject-icon" style="background:#fef9c3;color:#ca8a04"><i class="fa-solid fa-chart-line"></i></div>
+          <h3>Data Analytics</h3>
+          <p class="muted">Sir. Jonathan</p>
+          <!-- <div class="progress-track"><div class="progress-fill" style="width:95%;background:#ca8a04"></div></div>
+          <p class="progress-label">95% complete</p> -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ATTENDANCE -->
+    <section class="page" id="page-attendance">
+      <div class="page-head">
+        <div>
+          <p class="eyebrow" id="attendanceEyebrow">Web Development · 2025/2026</p>
+          <h1>Attendance</h1>
+        </div>
+
+        <!-- THIS TERM BUTTON -->
+        <div class="popover-wrap">
+          <button class="btn-outline" id="termBtn"><i class="fa-regular fa-calendar"></i> <span id="termBtnLabel">Courses</span></button>
+          <div class="popover popover-menu" id="termPopover">
+            <button class="popover-menu-item" onclick="attendance('Web-Dev')" data-term="Web Development">Web Development</button>
+            <button class="popover-menu-item" onclick="attendance('UI_UX')" data-term="UI/UX Design">UI/UX Design</button>
+            <button class="popover-menu-item" onclick="attendance('GraphicDesign')" data-term="Graphic Design">Graphic Design</button>
+            <button class="popover-menu-item" onclick="attendance('Robotics_AI')" data-term="Robotics & AI">Robotics & AI</button>
+            <button class="popover-menu-item" onclick="attendance('MicroSoftOffice')" data-term="MicroSoft Office">MicroSoft Office</button>
+            <button class="popover-menu-item" onclick="attendance('DataAnalytics')" data-term="Data Analytics">Data Analytics</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="course-attendance Web-Dev active">
+        <div class="grid-4">
+          <div class="card stat-card fade-in">
+            <div class="stat-icon" style="background:#dcfce7;color:var(--success)"><i class="fa-solid fa-check"></i></div>
+            <div><p class="stat-label">Present</p><p class="stat-value">45</p></div>
+          </div>
+          <div class="card stat-card fade-in delay1">
+            <div class="stat-icon" style="background:#fee2e2;color:var(--danger)"><i class="fa-solid fa-xmark"></i></div>
+            <div><p class="stat-label">Absent</p><p class="stat-value">2</p></div>
+          </div>
+          <div class="card stat-card fade-in delay2">
+            <div class="stat-icon" style="background:#fef9c3;color:var(--warning)"><i class="fa-solid fa-clock"></i></div>
+            <div><p class="stat-label">Late</p><p class="stat-value">1</p></div>
+          </div>
+          <div class="card stat-card fade-in delay3">
+            <div class="stat-icon" style="background:#dbeafe;color:var(--primary)"><i class="fa-solid fa-percent"></i></div>
+            <div><p class="stat-label">Attendance rate</p><p class="stat-value">93.7%</p></div>
+          </div>
+        </div>
+
+        <div class="card fade-in delay4">
+          <div class="card-head"><h3>Recent Attendance</h3></div>
+          <table class="table">
+            <thead><tr><th>Name</th><th>ID</th><th>Status in %</th><th>Remark</th></tr></thead>
+            <tbody>
+              <tr><td>Alex Johnson</td><td>WD-101</td><td><span class="badge badge-success">98%</span></td><td>Excellent attendance</td></tr>
+              <tr><td>Sarah Smith</td><td>WD-102</td><td><span class="badge badge-success">95%</span></td><td>Consistent performance</td></tr>
+              <tr><td>Michael Brown</td><td>WD-103</td><td><span class="badge badge-warning">88%</span></td><td>Slight delay on assignments</td></tr>
+              <tr><td>Emily Davis</td><td>WD-104</td><td><span class="badge badge-danger">72%</span></td><td>Needs improvement</td></tr>
+              <tr><td>David Wilson</td><td>WD-105</td><td><span class="badge badge-success">96%</span></td><td>Active participant</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="course-attendance UI_UX">
+        <div class="grid-4">
+          <div class="card stat-card fade-in">
+            <div class="stat-icon" style="background:#dcfce7;color:var(--success)"><i class="fa-solid fa-check"></i></div>
+            <div><p class="stat-label">Present</p><p class="stat-value">38</p></div>
+          </div>
+          <div class="card stat-card fade-in delay1">
+            <div class="stat-icon" style="background:#fee2e2;color:var(--danger)"><i class="fa-solid fa-xmark"></i></div>
+            <div><p class="stat-label">Absent</p><p class="stat-value">3</p></div>
+          </div>
+          <div class="card stat-card fade-in delay2">
+            <div class="stat-icon" style="background:#fef9c3;color:var(--warning)"><i class="fa-solid fa-clock"></i></div>
+            <div><p class="stat-label">Late</p><p class="stat-value">2</p></div>
+          </div>
+          <div class="card stat-card fade-in delay3">
+            <div class="stat-icon" style="background:#dbeafe;color:var(--primary)"><i class="fa-solid fa-percent"></i></div>
+            <div><p class="stat-label">Attendance rate</p><p class="stat-value">88.3%</p></div>
+          </div>
+        </div>
+
+        <div class="card fade-in delay4">
+          <div class="card-head"><h3>Recent Attendance</h3></div>
+          <table class="table">
+            <thead><tr><th>Name</th><th>ID</th><th>Status in %</th><th>Remark</th></tr></thead>
+            <tbody>
+              <tr><td>Jessica Taylor</td><td>UI-201</td><td><span class="badge badge-success">94%</span></td><td>Great design submissions</td></tr>
+              <tr><td>Daniel Martinez</td><td>UI-202</td><td><span class="badge badge-success">91%</span></td><td>Good interaction effort</td></tr>
+              <tr><td>Sophia Anderson</td><td>UI-203</td><td><span class="badge badge-warning">84%</span></td><td>Needs to join on time</td></tr>
+              <tr><td>James Thomas</td><td>UI-204</td><td><span class="badge badge-danger">69%</span></td><td>Frequent absences</td></tr>
+              <tr><td>Olivia Jackson</td><td>UI-205</td><td><span class="badge badge-success">97%</span></td><td>Top performer</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="course-attendance GraphicDesign">
+        <div class="grid-4">
+          <div class="card stat-card fade-in">
+            <div class="stat-icon" style="background:#dcfce7;color:var(--success)"><i class="fa-solid fa-check"></i></div>
+            <div><p class="stat-label">Present</p><p class="stat-value">52</p></div>
+          </div>
+          <div class="card stat-card fade-in delay1">
+            <div class="stat-icon" style="background:#fee2e2;color:var(--danger)"><i class="fa-solid fa-xmark"></i></div>
+            <div><p class="stat-label">Absent</p><p class="stat-value">1</p></div>
+          </div>
+          <div class="card stat-card fade-in delay2">
+            <div class="stat-icon" style="background:#fef9c3;color:var(--warning)"><i class="fa-solid fa-clock"></i></div>
+            <div><p class="stat-label">Late</p><p class="stat-value">0</p></div>
+          </div>
+          <div class="card stat-card fade-in delay3">
+            <div class="stat-icon" style="background:#dbeafe;color:var(--primary)"><i class="fa-solid fa-percent"></i></div>
+            <div><p class="stat-label">Attendance rate</p><p class="stat-value">98.1%</p></div>
+          </div>
+        </div>
+
+        <div class="card fade-in delay4">
+          <div class="card-head"><h3>Recent Attendance</h3></div>
+          <table class="table">
+            <thead><tr><th>Name</th><th>ID</th><th>Status in %</th><th>Remark</th></tr></thead>
+            <tbody>
+              <tr><td>Liam White</td><td>GD-301</td><td><span class="badge badge-success">100%</span></td><td>Perfect attendance</td></tr>
+              <tr><td>Emma Harris</td><td>GD-302</td><td><span class="badge badge-success">96%</span></td><td>Creative contributions</td></tr>
+              <tr><td>Noah Martin</td><td>GD-303</td><td><span class="badge badge-success">93%</span></td><td>Good coursework</td></tr>
+              <tr><td>Ava Thompson</td><td>GD-304</td><td><span class="badge badge-danger">75%</span></td><td>Missed project workshop</td></tr>
+              <tr><td>Lucas Garcia</td><td>GD-305</td><td><span class="badge badge-success">98%</span></td><td>Highly engaged</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="course-attendance Robotics_AI">
+        <div class="grid-4">
+          <div class="card stat-card fade-in">
+            <div class="stat-icon" style="background:#dcfce7;color:var(--success)"><i class="fa-solid fa-check"></i></div>
+            <div><p class="stat-label">Present</p><p class="stat-value">29</p></div>
+          </div>
+          <div class="card stat-card fade-in delay1">
+            <div class="stat-icon" style="background:#fee2e2;color:var(--danger)"><i class="fa-solid fa-xmark"></i></div>
+            <div><p class="stat-label">Absent</p><p class="stat-value">5</p></div>
+          </div>
+          <div class="card stat-card fade-in delay2">
+            <div class="stat-icon" style="background:#fef9c3;color:var(--warning)"><i class="fa-solid fa-clock"></i></div>
+            <div><p class="stat-label">Late</p><p class="stat-value">4</p></div>
+          </div>
+          <div class="card stat-card fade-in delay3">
+            <div class="stat-icon" style="background:#dbeafe;color:var(--primary)"><i class="fa-solid fa-percent"></i></div>
+            <div><p class="stat-label">Attendance rate</p><p class="stat-value">76.3%</p></div>
+          </div>
+        </div>
+
+        <div class="card fade-in delay4">
+          <div class="card-head"><h3>Recent Attendance</h3></div>
+          <table class="table">
+            <thead><tr><th>Name</th><th>ID</th><th>Status in %</th><th>Remark</th></tr></thead>
+            <tbody>
+              <tr><td>Ethan Robinson</td><td>RA-401</td><td><span class="badge badge-success">90%</span></td><td>Lab work complete</td></tr>
+              <tr><td>Mia Clark</td><td>RA-402</td><td><span class="badge badge-warning">82%</span></td><td>Tardy to morning sessions</td></tr>
+              <tr><td>Benjamin Lewis</td><td>RA-403</td><td><span class="badge badge-danger">65%</span></td><td>At-risk attendance</td></tr>
+              <tr><td>Charlotte Lee</td><td>RA-404</td><td><span class="badge badge-success">92%</span></td><td>Solid practical skills</td></tr>
+              <tr><td>Henry Walker</td><td>RA-405</td><td><span class="badge badge-warning">80%</span></td><td>Needs focus</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="course-attendance MicroSoftOffice">
+        <div class="grid-4">
+          <div class="card stat-card fade-in">
+            <div class="stat-icon" style="background:#dcfce7;color:var(--success)"><i class="fa-solid fa-check"></i></div>
+            <div><p class="stat-label">Present</p><p class="stat-value">60</p></div>
+          </div>
+          <div class="card stat-card fade-in delay1">
+            <div class="stat-icon" style="background:#fee2e2;color:var(--danger)"><i class="fa-solid fa-xmark"></i></div>
+            <div><p class="stat-label">Absent</p><p class="stat-value">0</p></div>
+          </div>
+          <div class="card stat-card fade-in delay2">
+            <div class="stat-icon" style="background:#fef9c3;color:var(--warning)"><i class="fa-solid fa-clock"></i></div>
+            <div><p class="stat-label">Late</p><p class="stat-value">1</p></div>
+          </div>
+          <div class="card stat-card fade-in delay3">
+            <div class="stat-icon" style="background:#dbeafe;color:var(--primary)"><i class="fa-solid fa-percent"></i></div>
+            <div><p class="stat-label">Attendance rate</p><p class="stat-value">98.3%</p></div>
+          </div>
+        </div>
+
+        <div class="card fade-in delay4">
+          <div class="card-head"><h3>Recent Attendance</h3></div>
+          <table class="table">
+            <thead><tr><th>Name</th><th>ID</th><th>Status in %</th><th>Remark</th></tr></thead>
+            <tbody>
+              <tr><td>Amelia Hall</td><td>MS-501</td><td><span class="badge badge-success">99%</span></td><td>Excellent progress</td></tr>
+              <tr><td>Harper Allen</td><td>MS-502</td><td><span class="badge badge-success">97%</span></td><td>Active participation</td></tr>
+              <tr><td>Evelyn Young</td><td>MS-503</td><td><span class="badge badge-success">95%</span></td><td>Good performance</td></tr>
+              <tr><td>Abigail King</td><td>MS-504</td><td><span class="badge badge-warning">89%</span></td><td>Slight delay once</td></tr>
+              <tr><td>Ella Wright</td><td>MS-505</td><td><span class="badge badge-success">100%</span></td><td>Flawless record</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="course-attendance DataAnalytics">
+        <div class="grid-4">
+          <div class="card stat-card fade-in">
+            <div class="stat-icon" style="background:#dcfce7;color:var(--success)"><i class="fa-solid fa-check"></i></div>
+            <div><p class="stat-label">Present</p><p class="stat-value">41</p></div>
+          </div>
+          <div class="card stat-card fade-in delay1">
+            <div class="stat-icon" style="background:#fee2e2;color:var(--danger)"><i class="fa-solid fa-xmark"></i></div>
+            <div><p class="stat-label">Absent</p><p class="stat-value">2</p></div>
+          </div>
+          <div class="card stat-card fade-in delay2">
+            <div class="stat-icon" style="background:#fef9c3;color:var(--warning)"><i class="fa-solid fa-clock"></i></div>
+            <div><p class="stat-label">Late</p><p class="stat-value">2</p></div>
+          </div>
+          <div class="card stat-card fade-in delay3">
+            <div class="stat-icon" style="background:#dbeafe;color:var(--primary)"><i class="fa-solid fa-percent"></i></div>
+            <div><p class="stat-label">Attendance rate</p><p class="stat-value">91.1%</p></div>
+          </div>
+        </div>
+
+        <div class="card fade-in delay4">
+          <div class="card-head"><h3>Recent Attendance</h3></div>
+          <table class="table">
+            <thead><tr><th>Name</th><th>ID</th><th>Status in %</th><th>Remark</th></tr></thead>
+            <tbody>
+              <tr><td>Sebastian Scott</td><td>DA-601</td><td><span class="badge badge-success">96%</span></td><td>Great data insights</td></tr>
+              <tr><td>Jack Green</td><td>DA-602</td><td><span class="badge badge-success">92%</span></td><td>Good class attendance</td></tr>
+              <tr><td>Owen Adams</td><td>DA-603</td><td><span class="badge badge-warning">86%</span></td><td>Late to one module</td></tr>
+              <tr><td>Chloe Baker</td><td>DA-604</td><td><span class="badge badge-danger">73%</span></td><td>Needs catching up</td></tr>
+              <tr><td>Grace Gonzalez</td><td>DA-605</td><td><span class="badge badge-success">94%</span></td><td>Consistent worker</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- GRADES  -->
+    <section class="page" id="page-grades">
+      <div class="page-head">
+        <div>
+          <p class="eyebrow" id="gpaEyebrow">Web Development · 2025/2026</p>
+          <h1>Grades</h1>
+        </div>
+        <div class="btn-flex">
+          <div class="popover-wrap">
+            <button class="btn-outline" id="gpaBtn"><i class="fa-regular fa-calendar"></i> <span id="gpaBtnLabel">Select Course</span></button>
+            <div class="popover popover-menu" id="gpaPopover">
+              <button class="popover-menu-item" onclick="gpaScores('Web-Dev')" data-term="Web Development">Web Development</button>
+              <button class="popover-menu-item" onclick="gpaScores('UI_UX')" data-term="UI/UX Design">UI/UX Design</button>
+              <button class="popover-menu-item" onclick="gpaScores('GraphicDesign')" data-term="Graphic Design">Graphic Design</button>
+              <button class="popover-menu-item" onclick="gpaScores('Robotics_AI')" data-term="Robotics & AI">Robotics & AI</button>
+              <button class="popover-menu-item" onclick="gpaScores('MicroSoftOffice')" data-term="MicroSoft Office">MicroSoft Office</button>
+              <button class="popover-menu-item" onclick="gpaScores('DataAnalytics')" data-term="Data Analytics">Data Analytics</button>
+            </div>
+          </div>
+          <button class="btn-outline" id="download"><i class="fa-solid fa-download"></i> Download report</button>
+        </div>
+      </div>
+
+      <div class="gpaGrid Web-Dev active">
+        <div class="grid-3">
+          <div class="card stat-card fade-in">
+            <div class="stat-icon" style="background:#dbeafe;color:var(--primary)"><i class="fa-solid fa-chart-line"></i></div>
+            <div><p class="stat-label">Average Test</p><p class="stat-value">24.2 / 30</p></div>
+          </div>
+          <div class="card stat-card fade-in delay1">
+            <div class="stat-icon" style="background:#ffedd5;color:var(--secondary)"><i class="fa-solid fa-trophy"></i></div>
+            <div><p class="stat-label">Average Exam</p><p class="stat-value">58.6 / 70</p></div>
+          </div>
+          <div class="card stat-card fade-in delay2">
+            <div class="stat-icon" style="background:#dcfce7;color:var(--success)"><i class="fa-solid fa-arrow-trend-up"></i></div>
+            <div><p class="stat-label">Course Pass Rate</p><p class="stat-value">94%</p></div>
+          </div>
+        </div>
+
+        <div class="card fade-in delay3">
+          <div class="card-head"><h3>Web Development Grades</h3></div>
+          <table class="table">
+            <thead><tr><th>#</th><th>Name</th><th>ID</th><th>CA</th><th>Practical</th><th>Exam</th><th>Grade</th></tr></thead>
+            <tbody id="student_scores">
+              <!-- <tr><td class="student-name">Alex Johnson</td><td class="student-id">WD-101</td><td class="student-test">28</td><td class="student-exam">65</td><td><span class="badge student-grade badge-success">A</span></td></tr>
+              <tr><td class="student-name">Sarah Smith</td><td class="student-id">WD-102</td><td class="student-test">26</td><td class="student-exam">60</td><td><span class="badge student-grade badge-success">A</span></td></tr>
+              <tr><td class="student-name">Michael Brown</td><td class="student-id">WD-103</td><td class="student-test">21</td><td class="student-exam">52</td><td><span class="badge student-grade badge-warning">B</span></td></tr>
+              <tr><td class="student-name">Emily Davis</td><td class="student-id">WD-104</td><td class="student-test">17</td><td class="student-exam">44</td><td><span class="badge student-grade badge-neutral">C</span></td></tr>
+              <tr><td class="student-name">David Wilson</td><td class="student-id">WD-105</td><td class="student-test">27</td><td class="student-exam">62</td><td><span class="badge student-grade badge-success">A</span></td></tr> -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="gpaGrid UI_UX">
+        <div class="grid-3">
+          <div class="card stat-card fade-in">
+            <div class="stat-icon" style="background:#dbeafe;color:var(--primary)"><i class="fa-solid fa-chart-line"></i></div>
+            <div><p class="stat-label">Average Test</p><p class="stat-value">22.8 / 30</p></div>
+          </div>
+          <div class="card stat-card fade-in delay1">
+            <div class="stat-icon" style="background:#ffedd5;color:var(--secondary)"><i class="fa-solid fa-trophy"></i></div>
+            <div><p class="stat-label">Average Exam</p><p class="stat-value">55.4 / 70</p></div>
+          </div>
+          <div class="card stat-card fade-in delay2">
+            <div class="stat-icon" style="background:#dcfce7;color:var(--success)"><i class="fa-solid fa-arrow-trend-up"></i></div>
+            <div><p class="stat-label">Course Pass Rate</p><p class="stat-value">88%</p></div>
+          </div>
+        </div>
+
+        <div class="card fade-in delay3">
+          <div class="card-head"><h3>UI/UX Grades</h3></div>
+          <table class="table">
+            <thead><tr><th>Name</th><th>ID</th><th>Test</th><th>Exam</th><th>Grade</th></tr></thead>
+            <tbody>
+              <tr>
+                <td class="student-name">Jessica Taylor</td>
+                <td class="student-id">UI-201</td>
+                <td class="student-test">25</td>
+                <td class="student-exam">61</td>
+                <td><span class="badge student-grade badge-success">A</span></td>
+              </tr>
+              <tr><td class="student-name">Daniel Martinez</td><td class="student-id">UI-202</td><td class="student-test">23</td><td class="student-exam">57</td><td><span class="badge student-grade badge-success">A</span></td></tr>
+              <tr><td class="student-name">Sophia Anderson</td><td class="student-id">UI-203</td><td class="student-test">20</td><td class="student-exam">49</td><td><span class="badge student-grade badge-warning">B</span></td></tr>
+              <tr><td class="student-name">James Thomas</td><td class="student-id">UI-204</td><td class="student-test">15</td><td class="student-exam">41</td><td><span class="badge student-grade badge-danger">F</span></td></tr>
+              <tr><td class="student-name">Olivia Jackson</td><td class="student-id">UI-205</td><td class="student-test">26</td><td class="student-exam">64</td><td><span class="badge student-grade badge-success">A</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="gpaGrid GraphicDesign">
+        <div class="grid-3">
+          <div class="card stat-card fade-in">
+            <div class="stat-icon" style="background:#dbeafe;color:var(--primary)"><i class="fa-solid fa-chart-line"></i></div>
+            <div><p class="stat-label">Average Test</p><p class="stat-value">25.6 / 30</p></div>
+          </div>
+          <div class="card stat-card fade-in delay1">
+            <div class="stat-icon" style="background:#ffedd5;color:var(--secondary)"><i class="fa-solid fa-trophy"></i></div>
+            <div><p class="stat-label">Average Exam</p><p class="stat-value">61.2 / 70</p></div>
+          </div>
+          <div class="card stat-card fade-in delay2">
+            <div class="stat-icon" style="background:#dcfce7;color:var(--success)"><i class="fa-solid fa-arrow-trend-up"></i></div>
+            <div><p class="stat-label">Course Pass Rate</p><p class="stat-value">96%</p></div>
+          </div>
+        </div>
+
+        <div class="card fade-in delay3">
+          <div class="card-head"><h3>Graphic Design Grades</h3></div>
+          <table class="table">
+            <thead><tr><th>Name</th><th>ID</th><th>Test</th><th>Exam</th><th>Grade</th></tr></thead>
+            <tbody>
+              <tr><td class="student-name">Liam White</td><td class="student-id">GD-301</td><td class="student-test">29</td><td class="student-exam">68</td><td><span class="badge student-grade badge-success">A</span></td></tr>
+              <tr><td class="student-name">Emma Harris</td><td class="student-id">GD-302</td><td class="student-test">27</td><td class="student-exam">63</td><td><span class="badge student-grade badge-success">A</span></td></tr>
+              <tr><td class="student-name">Noah Martin</td><td class="student-id">GD-303</td><td class="student-test">24</td><td class="student-exam">56</td><td><span class="badge student-grade badge-success">A</span></td></tr>
+              <tr><td class="student-name">Ava Thompson</td><td class="student-id">GD-304</td><td class="student-test">18</td><td class="student-exam">47</td><td><span class="badge student-grade badge-neutral">C</span></td></tr>
+              <tr><td class="student-name">Lucas Garcia</td><td class="student-id">GD-305</td><td class="student-test">28</td><td class="student-exam">66</td><td><span class="badge student-grade badge-success">A</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="gpaGrid Robotics_AI">
+        <div class="grid-3">
+          <div class="card stat-card fade-in">
+            <div class="stat-icon" style="background:#dbeafe;color:var(--primary)"><i class="fa-solid fa-chart-line"></i></div>
+            <div><p class="stat-label">Average Test</p><p class="stat-value">19.4 / 30</p></div>
+          </div>
+          <div class="card stat-card fade-in delay1">
+            <div class="stat-icon" style="background:#ffedd5;color:var(--secondary)"><i class="fa-solid fa-trophy"></i></div>
+            <div><p class="stat-label">Average Exam</p><p class="stat-value">48.0 / 70</p></div>
+          </div>
+          <div class="card stat-card fade-in delay2">
+            <div class="stat-icon" style="background:#dcfce7;color:var(--success)"><i class="fa-solid fa-arrow-trend-up"></i></div>
+            <div><p class="stat-label">Course Pass Rate</p><p class="stat-value">78%</p></div>
+          </div>
+        </div>
+
+        <div class="card fade-in delay3">
+          <div class="card-head"><h3>Robotics & AI Grades</h3></div>
+          <table class="table">
+            <thead><tr><th>Name</th><th>ID</th><th>Test</th><th>Exam</th><th>Grade</th></tr></thead>
+            <tbody>
+              <tr><td class="student-name">Ethan Robinson</td><td class="student-id">RA-401</td><td class="student-test">22</td><td class="student-exam">54</td><td><span class="badge student-grade badge-warning">B</span></td></tr>
+              <tr><td class="student-name">Mia Clark</td><td class="student-id">RA-402</td><td class="student-test">19</td><td class="student-exam">48</td><td><span class="badge student-grade badge-warning">B</span></td></tr>
+              <tr><td class="student-name">Benjamin Lewis</td><td class="student-id">RA-403</td><td class="student-test">14</td><td class="student-exam">39</td><td><span class="badge student-grade badge-danger">F</span></td></tr>
+              <tr><td class="student-name">Charlotte Lee</td><td class="student-id">RA-404</td><td class="student-test">24</td><td class="student-exam">55</td><td><span class="badge student-grade badge-success">A</span></td></tr>
+              <tr><td class="student-name">Henry Walker</td><td class="student-id">RA-405</td><td class="student-test">18</td><td class="student-exam">45</td><td><span class="badge student-grade badge-neutral">C</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="gpaGrid MicroSoftOffice">
+        <div class="grid-3">
+          <div class="card stat-card fade-in">
+            <div class="stat-icon" style="background:#dbeafe;color:var(--primary)"><i class="fa-solid fa-chart-line"></i></div>
+            <div><p class="stat-label">Average Test</p><p class="stat-value">27.0 / 30</p></div>
+          </div>
+          <div class="card stat-card fade-in delay1">
+            <div class="stat-icon" style="background:#ffedd5;color:var(--secondary)"><i class="fa-solid fa-trophy"></i></div>
+            <div><p class="stat-label">Average Exam</p><p class="stat-value">63.5 / 70</p></div>
+          </div>
+          <div class="card stat-card fade-in delay2">
+            <div class="stat-icon" style="background:#dcfce7;color:var(--success)"><i class="fa-solid fa-arrow-trend-up"></i></div>
+            <div><p class="stat-label">Course Pass Rate</p><p class="stat-value">98%</p></div>
+          </div>
+        </div>
+
+        <div class="card fade-in delay3">
+          <div class="card-head"><h3>Microsoft Office Grades</h3></div>
+          <table class="table">
+            <thead><tr><th>Name</th><th>ID</th><th>Test</th><th>Exam</th><th>Grade</th></tr></thead>
+            <tbody>
+              <tr><td class="student-name">Amelia Hall</td><td class="student-id">MS-501</td><td class="student-test">28</td><td class="student-exam">67</td><td><span class="badge student-grade badge-success">A</span></td></tr>
+              <tr><td class="student-name">Harper Allen</td><td class="student-id">MS-502</td><td class="student-test">27</td><td class="student-exam">64</td><td><span class="badge student-grade badge-success">A</span></td></tr>
+              <tr><td class="student-name">Evelyn Young</td><td class="student-id">MS-503</td><td class="student-test">26</td><td class="student-exam">61</td><td><span class="badge student-grade badge-success">A</span></td></tr>
+              <tr><td class="student-name">Abigail King</td><td class="student-id">MS-504</td><td class="student-test">23</td><td class="student-exam">55</td><td><span class="badge student-grade badge-warning">B</span></td></tr>
+              <tr><td class="student-name">Ella Wright</td><td class="student-id">MS-505</td><td class="student-test">29</td><td class="student-exam">69</td><td><span class="badge student-grade badge-success">A</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="gpaGrid DataAnalytics">
+        <div class="grid-3">
+          <div class="card stat-card fade-in">
+            <div class="stat-icon" style="background:#dbeafe;color:var(--primary)"><i class="fa-solid fa-chart-line"></i></div>
+            <div><p class="stat-label">Average Test</p><p class="stat-value">23.5 / 30</p></div>
+          </div>
+          <div class="card stat-card fade-in delay1">
+            <div class="stat-icon" style="background:#ffedd5;color:var(--secondary)"><i class="fa-solid fa-trophy"></i></div>
+            <div><p class="stat-label">Average Exam</p><p class="stat-value">57.0 / 70</p></div>
+          </div>
+          <div class="card stat-card fade-in delay2">
+            <div class="stat-icon" style="background:#dcfce7;color:var(--success)"><i class="fa-solid fa-arrow-trend-up"></i></div>
+            <div><p class="stat-label">Course Pass Rate</p><p class="stat-value">91%</p></div>
+          </div>
+        </div>
+
+        <div class="card fade-in delay3">
+          <div class="card-head"><h3>Data Analytics Grades</h3></div>
+          <table class="table">
+            <thead><tr><th>Name</th><th>ID</th><th>Test</th><th>Exam</th><th>Grade</th></tr></thead>
+            <tbody>
+              <tr><td class="student-name">Sebastian Scott</td><td class="student-id">DA-601</td><td class="student-test">26</td><td class="student-exam">62</td><td><span class="badge student-grade badge-success">A</span></td></tr>
+              <tr><td class="student-name">Jack Green</td><td class="student-id">DA-602</td><td class="student-test">24</td><td class="student-exam">58</td><td><span class="badge student-grade badge-success">A</span></td></tr>
+              <tr><td class="student-name">Owen Adams</td><td class="student-id">DA-603</td><td class="student-test">22</td><td class="student-exam">51</td><td><span class="badge student-grade badge-warning">B</span></td></tr>
+              <tr><td class="student-name">Chloe Baker</td><td class="student-id">DA-604</td><td class="student-test">16</td><td class="student-exam">43</td><td><span class="badge student-grade badge-neutral">C</span></td></tr>
+              <tr><td class="student-name">Grace Gonzalez</td><td class="student-id">DA-605</td><td class="student-test">25</td><td class="student-exam">60</td><td><span class="badge student-grade badge-success">A</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ASSIGNMENTS  -->
+     <!-- <section class="page" id="page-assignments">
+      <div class="page-head">
+        <div>
+          <p class="eyebrow">4 due this week</p>
+          <h1>Assignments</h1>
+        </div>
+        <button class="btn-primary"><i class="fa-solid fa-plus"></i> New submission</button>
+      </div>
+
+      <div class="card">
+        <table class="table">
+          <thead><tr><th>Course</th><th>Task</th><th>Assigned</th><th>Due</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td><span class="dot-tag" style="background:var(--primary)"></span>Chemistry</td><td>Titration lab report</td><td>Jul 28</td><td>Aug 6</td><td><span class="badge badge-warning">Pending</span></td></tr>
+            <tr><td><span class="dot-tag" style="background:var(--secondary)"></span>Mathematics</td><td>Calculus problem set 4</td><td>Jul 30</td><td>Aug 7</td><td><span class="badge badge-warning">Pending</span></td></tr>
+            <tr><td><span class="dot-tag" style="background:#22c55e"></span>Biology</td><td>Cell division essay</td><td>Jul 25</td><td>Aug 9</td><td><span class="badge badge-success">Submitted</span></td></tr>
+            <tr><td><span class="dot-tag" style="background:#a855f7"></span>Literature</td><td>Poetry analysis</td><td>Aug 1</td><td>Aug 11</td><td><span class="badge badge-neutral">Not started</span></td></tr>
+            <tr><td><span class="dot-tag" style="background:#ca8a04"></span>Computer Science</td><td>Sorting algorithm demo</td><td>Jul 20</td><td>Jul 30</td><td><span class="badge badge-danger">Overdue</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section> -->
+
+
+    <!-- TIMETABLE  -->
+     <!-- <section class="page" id="page-timetable">
+      <div class="page-head">
+        <div>
+          <p class="eyebrow">Week of Aug 3 – Aug 7</p>
+          <h1>Timetable</h1>
+        </div>
+        <button class="btn-outline"><i class="fa-solid fa-print"></i> Print</button>
+      </div>
+
+      <div class="card timetable-card">
+        <table class="table timetable">
+          <thead>
+            <tr><th>Time</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>08:00</td>
+              <td><span class="tt-pill" style="background:#dbeafe;color:var(--primary)">Web Development</span></td>
+              <td><span class="tt-pill" style="background:#ffedd5;color:var(--secondary)">Robotics</span></td>
+              <td><span class="tt-pill" style="background:#dcfce7;color:var(--success)">UI/UX</span></td>
+              <td><span class="tt-pill" style="background:#f3e8ff;color:#a855f7">Data Analytics</span></td>
+              <td><span class="tt-pill" style="background:#fef9c3;color:#ca8a04">Python</span></td>
+            </tr>
+            <tr>
+              <td>09:40</td>
+              <td><span class="tt-pill" style="background:#ffedd5;color:var(--secondary)">Robotics</span></td>
+              <td><span class="tt-pill" style="background:#dbeafe;color:var(--primary)">Web Development</span></td>
+              <td><span class="tt-pill" style="background:#fee2e2;color:var(--danger)">Computer Networking</span></td>
+              <td><span class="tt-pill" style="background:#dcfce7;color:var(--success)">UI/UX</span></td>
+              <td><span class="tt-pill" style="background:#ffedd5;color:var(--secondary)">Robotics</span></td>
+            </tr>
+            <tr>
+              <td>11:20</td>
+              <td><span class="tt-pill muted-pill">Break</span></td>
+              <td><span class="tt-pill muted-pill">Break</span></td>
+              <td><span class="tt-pill muted-pill">Break</span></td>
+              <td><span class="tt-pill muted-pill">Break</span></td>
+              <td><span class="tt-pill muted-pill">Break</span></td>
+            </tr>
+            <tr>
+              <td>11:40</td>
+              <td><span class="tt-pill" style="background:#f3e8ff;color:#a855f7">Data Analytics</span></td>
+              <td><span class="tt-pill" style="background:#fef9c3;color:#ca8a04">Python</span></td>
+              <td><span class="tt-pill" style="background:#dbeafe;color:var(--primary)">Web Development</span></td>
+              <td><span class="tt-pill" style="background:#ffedd5;color:var(--secondary)">Robotics</span></td>
+              <td><span class="tt-pill" style="background:#dcfce7;color:var(--success)">UI/UX</span></td>
+            </tr>
+            <tr>
+              <td>13:00</td>
+              <td><span class="tt-pill" style="background:#fee2e2;color:var(--danger)">Computer Networking</span></td>
+              <td><span class="tt-pill" style="background:#dcfce7;color:var(--success)">UI/UX</span></td>
+              <td><span class="tt-pill" style="background:#f3e8ff;color:#a855f7">Data Analytics</span></td>
+              <td><span class="tt-pill" style="background:#fef9c3;color:#ca8a04">Python</span></td>
+              <td><span class="tt-pill muted-pill">Free period</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section> -->
+
+
+    <!-- ANNOUNCEMENTS -->
+    <section class="page" id="page-announcements">
+      <div class="page-head">
+        <div>
+          <p class="eyebrow">5 new</p>
+          <h1>Announcements</h1>
+        </div>
+        <button class="btn-outline" id="markAllReadBtn"><i class="fa-solid fa-envelope-open-text"></i> Mark all read</button>
+      </div>
+
+      <div class="announce-list" id="announceList">
+        <div class="card announce-card fade-in delay">
+          <div class="ann-icon" style="background:#dbeafe;color:var(--primary)"><i class="fa-solid fa-bullhorn"></i></div>
+          <div class="ann-body">
+            <div class="ann-top"><h3>Mid-term exams timetable released</h3><span class="ann-time">2h ago</span></div>
+            <p class="muted">The mid-term examination schedule for all SS2 classes has been posted on the notice board and portal.</p>
+          </div>
+        </div>
+        <div class="card announce-card fade-in delay1">
+          <div class="ann-icon" style="background:#ffedd5;color:var(--secondary)"><i class="fa-solid fa-bus"></i></div>
+          <div class="ann-body">
+            <div class="ann-top"><h3>School bus route change</h3><span class="ann-time">1 day ago</span></div>
+            <p class="muted">Route B pickup point moves to Gate 2 starting Monday due to ongoing road construction.</p>
+          </div>
+        </div>
+        <div class="card announce-card fade-in delay2">
+          <div class="ann-icon" style="background:#dcfce7;color:var(--success)"><i class="fa-solid fa-trophy"></i></div>
+          <div class="ann-body">
+            <div class="ann-top"><h3>Inter-house sports registration open</h3><span class="ann-time">3 days ago</span></div>
+            <p class="muted">Sign up with your house captain before Friday to compete in this term's inter-house sports events.</p>
+          </div>
+        </div>
+        <div class="card announce-card fade-in delay3">
+          <div class="ann-icon" style="background:#fee2e2;color:var(--danger)"><i class="fa-solid fa-triangle-exclamation"></i></div>
+          <div class="ann-body">
+            <div class="ann-top"><h3>Library closed for stock-taking</h3><span class="ann-time">4 days ago</span></div>
+            <p class="muted">The main library will be closed from Aug 12 to Aug 14 for annual stock-taking. Online catalogue stays available.</p>
+          </div>
+        </div>
+        <div class="card announce-card fade-in delay4">
+          <div class="ann-icon" style="background:#f3e8ff;color:#a855f7"><i class="fa-solid fa-laptop-code"></i></div>
+          <div class="ann-body">
+            <div class="ann-top"><h3>Coding club hackathon: register now</h3><span class="ann-time">5 days ago</span></div>
+            <p class="muted">Teams of up to 4 can register for the 24-hour hackathon happening next weekend in the CS lab.</p>
+          </div>
+        </div>
+        <div class="card announce-card fade-in delay5">
+          <div class="ann-icon" style="background:#dbeafe;color:var(--primary)"><i class="fa-solid fa-money-bill-wave"></i></div>
+          <div class="ann-body">
+            <div class="ann-top"><h3>Second instalment fees deadline</h3><span class="ann-time">1 week ago</span></div>
+            <p class="muted">Second instalment school fees are due by Aug 20. Payment can be made through the portal or bursary.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</section>
+
+<!-- Calendar pop-up -->
+<div class="modal-overlay" id="calendarModal">
+  <div class="modal calendar-modal-box">
+    <div class="calendar-header">
+      <button class="cal-nav-btn" id="calPrevBtn" aria-label="Previous month"><i class="fa-solid fa-chevron-left"></i></button>
+      <h3 id="calendarMonthLabel">August 2026</h3>
+      <button class="cal-nav-btn" id="calNextBtn" aria-label="Next month"><i class="fa-solid fa-chevron-right"></i></button>
+      <button class="modal-close-btn" id="closeCalendar" aria-label="Close calendar">&times;</button>
+    </div>
+    <div class="calendar-weekdays">
+      <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
+    </div>
+    <div class="calendar-grid" id="calendarGrid"></div>
+  </div>
+</div>
+
+<script src="asset/script.js"></script>
+</body>
+</html>
