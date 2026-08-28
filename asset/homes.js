@@ -1,10 +1,3 @@
-/* ============================================
-   TechStars Store — Interactive Catalogue
-   ============================================ */
-
-// ============================================
-// DATA
-// ============================================
 
 const products = [
     {
@@ -14,7 +7,7 @@ const products = [
         price: 30000,
         originalPrice: 35000,
         category: 'Full Stack',
-        image: 'store media/Full stack developer.jpeg',
+        image: 'media/store media/Full stack developer.jpeg',
         icon: 'fa-laptop-code',
         duration: '5 Weeks',
         level: 'Beginner',
@@ -27,7 +20,7 @@ const products = [
         price: 30000,
         originalPrice: 35000,
         category: 'UI/UX',
-        image: 'store media/UI_UX Design Company.jpeg',
+        image: 'media/store media/UI_UX Design Company.jpeg',
         icon: 'fa-pen-nib',
         duration: '5 Weeks',
         level: 'Beginner',
@@ -40,7 +33,7 @@ const products = [
         price: 30000,
         originalPrice: 35000,
         category: 'Data Science',
-        image: 'store media/Top Data Science .jpeg',
+        image: 'media/store media/Top Data Science .jpeg',
         icon: 'fa-brain',
         duration: '5 Weeks',
         level: 'Intermediate',
@@ -53,7 +46,7 @@ const products = [
         price: 30000,
         originalPrice: 35000,
         category: 'Robotics',
-        image: 'store media/robot.jpeg',
+        image: 'media/store media/robot.jpeg',
         icon: 'fa-robot',
         duration: '5 Weeks',
         level: 'Beginner',
@@ -66,7 +59,7 @@ const products = [
         price: 30000,
         originalPrice: 35000,
         category: 'Microsoft',
-        image: 'store media/SOFTWARE LEGIT _ OFFICE 365 PERSONAL _ MICROSOFT 365(1).jpeg',
+        image: 'media/store media/SOFTWARE LEGIT _ OFFICE 365 PERSONAL _ MICROSOFT 365(1).jpeg',
         icon: 'fa-file-word',
         duration: '5 Weeks',
         level: 'Beginner',

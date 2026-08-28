@@ -13,7 +13,7 @@ const products = [
         price: 65000,
         originalPrice: 72000,
         category: 'Robotics',
-        image: 'store media/raspberry Pi.jpeg',
+        image: 'media/store media/raspberry Pi.jpeg',
         icon: 'fa-microchip',
         badge: 'Popular',
         desc: '4GB RAM, case, heatsinks, and 32GB SD card preloaded with bootcamp OS.'
@@ -24,7 +24,7 @@ const products = [
         price: 8500,
         originalPrice: 10000,
         category: 'Web Dev',
-        image: 'store media/vscode.jpeg',
+        image: 'media/store media/vscode.jpeg',
         icon: 'fa-code',
         badge: null,
         desc: 'Visual Studio Code — the industry standard source code editor for modern web development.'
@@ -35,7 +35,7 @@ const products = [
         price: 58000,
         originalPrice: 65000,
         category: 'Robotics',
-        image: 'store media/two.jpeg',
+        image: 'media/store media/two.jpeg',
         icon: 'fa-robot',
         badge: null,
         desc: 'All-in-one STEM educational and prototyping kit for learning electronics and programming.'
@@ -46,7 +46,7 @@ const products = [
         price: 15000,
         originalPrice: 18000,
         category: 'Python & Machine Learning',
-        image: 'store media/google colab.jpeg',
+        image: 'media/store media/google colab.jpeg',
         icon: 'fa-brain',
         badge: null,
         desc: 'Cloud-based Jupyter notebook environment for machine learning and data science.'
@@ -57,7 +57,7 @@ const products = [
         price: 32000,
         originalPrice: 35000,
         category: 'Robotics',
-        image: 'store media/Freenove.jpeg',
+        image: 'media/store media/Freenove.jpeg',
         icon: 'fa-microchip',
         badge: 'New',
         desc: 'Built-in speaker, microphone, and touch sensor for rapid prototyping.'
@@ -68,7 +68,7 @@ const products = [
         price: 3500,
         originalPrice: 5000,
         category: 'Python & Machine Learning',
-        image: 'store media/ana.jpeg',
+        image: 'media/store media/ana.jpeg',
         icon: 'fa-python',
         badge: null,
         desc: 'Open-source distribution of Python and R for data science and machine learning.'
@@ -79,7 +79,7 @@ const products = [
         price: 6000,
         originalPrice: 7500,
         category: 'Web Dev',
-        image: 'store media/JavaScript .jpeg',
+        image: 'media/store media/JavaScript .jpeg',
         icon: 'fa-js',
         badge: null,
         desc: '50 project prompts from DOM games to API integrations.'
@@ -90,7 +90,7 @@ const products = [
         price: 1500,
         originalPrice: 2000,
         category: 'Merch',
-        image: 'store media/stickers.jpeg',
+        image: 'media/store media/stickers.jpeg',
         icon: 'fa-palette',
         badge: null,
         desc: '12 durable vinyl stickers to customize laptop lids and kit boxes.'
@@ -101,7 +101,7 @@ const products = [
         price: 4500,
         originalPrice: 5500,
         category: 'Robotics',
-        image: 'store media/breadboard.jpeg',
+        image: 'media/store media/breadboard.jpeg',
         icon: 'fa-plug',
         badge: null,
         desc: '830-point breadboard with 140 assorted jumper wires.'
@@ -112,7 +112,7 @@ const products = [
         price: 9500,
         originalPrice: 12000,
         category: 'Graphics Design',
-        image: 'store media/can&ps.jpeg',
+        image: 'media/store media/can&ps.jpeg',
         icon: 'fa-pen-nib',
         badge: null,
         desc: 'Professional design tools for creating stunning visuals and graphics.'
@@ -123,7 +123,7 @@ const products = [
         price: 15000,
         originalPrice: 18000,
         category: 'Microsoft Packages',
-        image: 'store media/icon.jpeg',
+        image: 'media/store media/icon.jpeg',
         icon: 'fa-file-word',
         badge: 'Bestseller',
         desc: 'Core productivity apps, cloud storage, and security features for personal use.'
@@ -134,7 +134,7 @@ const products = [
         price: 8000,
         originalPrice: 10000,
         category: 'Graphics Design',
-        image: 'store media/figma.jpeg',
+        image: 'media/store media/figma.jpeg',
         icon: 'fa-figma',
         badge: 'Bestseller',
         desc: 'Cloud-based design platform for building UI/UX products collaboratively.'
