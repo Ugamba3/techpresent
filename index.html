@@ -256,6 +256,19 @@
         </div>
     </section>
 
+    <section id="video">
+        <div class="gallery-item videos fade-in delay2" data-type="videos">
+          <video poster="media/images/video.mp4" autoplay  muted loop>
+            <source src="media/images/video.mp4" type="video/mp4">
+          </video>
+          <div class="gallery-overlay">
+            <i class="fa-solid fa-play"></i>
+            <span>TechStars Bootcamp</span>
+          </div>
+          <button class="play-btn"><i class="fa-solid fa-play"></i></button>
+        </div>
+    </section>
+
     <!-- FAQ -->
     <section class="faq-section">
         <div class="section-header">
@@ -345,6 +358,129 @@
         </div>
     </footer>
 
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <button class="lightbox-close"><i class="fa-solid fa-xmark"></i></button>
+        <div class="lightbox-content">
+            <img src="" alt="" id="lightbox-img">
+            <video controls id="lightbox-video">
+                <source src="" type="video/mp4">
+            </video>
+            <p id="lightbox-caption"></p>
+        </div>
+    </div>
+
     <script src="https://kit.fontawesome.com/13f42163ac.js" crossorigin="anonymous"></script>
+    <script>
+        /* ============================================================
+        NEW: Gallery Filter + Lightbox
+        ============================================================ */
+        document.addEventListener("DOMContentLoaded", () => {
+            const filterBtns = document.querySelectorAll(".filter-btn");
+            const galleryItems = document.querySelectorAll(".gallery-item");
+
+            // Filter functionality
+            filterBtns.forEach((btn) => {
+                btn.addEventListener("click", () => {
+                filterBtns.forEach((b) => b.classList.remove("active"));
+                btn.classList.add("active");
+
+                const filter = btn.dataset.filter;
+                galleryItems.forEach((item) => {
+                    if (filter === "all" || item.dataset.type === filter) {
+                    item.classList.remove("hidden");
+                    } else {
+                    item.classList.add("hidden");
+                    }
+                });
+                });
+            });
+
+            // Lightbox functionality
+            const lightbox = document.getElementById("lightbox");
+            const lightboxImg = document.getElementById("lightbox-img");
+            const lightboxVideo = document.getElementById("lightbox-video");
+            const lightboxCaption = document.getElementById("lightbox-caption");
+            let currentIndex = 0;
+            let visibleItems = [];
+
+            function updateVisibleItems() {
+                visibleItems = Array.from(galleryItems).filter(
+                (item) => !item.classList.contains("hidden"),
+                );
+            }
+
+            function openLightbox(index) {
+                updateVisibleItems();
+                currentIndex = index;
+                const item = visibleItems[index];
+                const caption = item.querySelector(".gallery-overlay span").textContent;
+                lightboxCaption.textContent = caption;
+
+                const img = item.querySelector("img");
+                const video = item.querySelector("video");
+
+                if (video) {
+                lightboxImg.style.display = "none";
+                lightboxVideo.style.display = "block";
+                const source = video.querySelector("source");
+                lightboxVideo.querySelector("source").src = source.src;
+                lightboxVideo.load();
+                lightboxVideo.play();
+                } else {
+                lightboxVideo.style.display = "none";
+                lightboxImg.style.display = "block";
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt;
+                }
+
+                lightbox.classList.add("active");
+                document.body.style.overflow = "hidden";
+            }
+
+            function closeLightbox() {
+                lightbox.classList.remove("active");
+                lightboxVideo.pause();
+                document.body.style.overflow = "";
+            }
+
+            // Click on gallery items (not play buttons)
+            galleryItems.forEach((item, index) => {
+                item.addEventListener("click", (e) => {
+                if (e.target.closest(".play-btn")) return;
+                updateVisibleItems();
+                const visibleIndex = visibleItems.indexOf(item);
+                openLightbox(visibleIndex);
+                });
+            });
+
+            // Play buttons for videos
+            document.querySelectorAll(".play-btn").forEach((btn) => {
+                btn.addEventListener("click", (e) => {
+                e.stopPropagation();
+                const item = btn.closest(".gallery-item");
+                updateVisibleItems();
+                const visibleIndex = visibleItems.indexOf(item);
+                openLightbox(visibleIndex);
+                });
+            });
+
+            // Lightbox controls
+            document.querySelector(".lightbox-close").addEventListener("click", closeLightbox);
+
+            // Close on background click
+            lightbox.addEventListener("click", (e) => {
+                if (e.target === lightbox) closeLightbox();
+            });
+
+            // Keyboard navigation
+            document.addEventListener("keydown", (e) => {
+                if (!lightbox.classList.contains("active")) return;
+                if (e.key === "Escape") closeLightbox();
+                if (e.key === "ArrowRight") nextLightbox();
+                if (e.key === "ArrowLeft") prevLightbox();
+            });
+        });
+    </script>
 </body>
 </html>
