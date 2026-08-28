@@ -1344,7 +1344,8 @@ footer p {
     transition: all linear .3s;
 }
 
-.foot-link a:hover {
+.foot-link a:hover,
+.foot-link a.active {
     color: var(--color-surface);
     transform: translateX(7px);
 }
