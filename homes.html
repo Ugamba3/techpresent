@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materials</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="asset/homes.css">
+    <script src="https://kit.fontawesome.com/de94c8c05c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-overlay" id="mobileOverlay" onclick="toggleMobileMenu()"></div>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Cart Drawer -->
+    <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+    <aside class="cart-drawer" id="cartDrawer">
+        <div class="cart-drawer-header">
+            <h3><i class="fa-solid fa-bag-shopping"></i> Your Kit</h3>
+            <button class="cart-close" onclick="toggleCart()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="cart-drawer-body" id="cartDrawerBody">
+            <div class="cart-empty" id="cartEmpty">
+                <i class="fa-solid fa-basket-shopping"></i>
+                <p>Your kit is empty</p>
+                <span>Add courses to get started</span>
+            </div>
+            <div class="cart-items" id="cartItems"></div>
+        </div>
+        <div class="cart-drawer-footer" id="cartFooter" style="display: none;">
+            <div class="cart-summary-row">
+                <span>Subtotal</span>
+                <span id="cartSubtotal">₦0</span>
+            </div>
+            <div class="cart-summary-row discount">
+                <span>Bundle Discount</span>
+                <span id="cartDiscount">-₦0</span>
+            </div>
+            <div class="cart-summary-row total">
+                <span>Total</span>
+                <span id="cartTotal">₦0</span>
+            </div>
+            <button class="checkout-btn" onclick="checkout()">
+                <i class="fa-solid fa-lock"></i> Proceed to Checkout
+            </button>
+        </div>
+    </aside>
+ 
+    <aside class="sidebar" id="sidebar">
+        <button class="mobile-menu-close" onclick="toggleMobileMenu()"><i class="fa-solid fa-xmark"></i></button>
+        <div class="logo">
+            <div class="logo-mark">
+                <img src="media/store media/TechStars_Logo.png" width="100px" style="transform: translateY(20px);">
+               
+            </div>
+            <h2>TechStars</h2>
+            <p class="logo-subtitle">Centre for Information and Telecommunication Engineering</p>
+        </div>
+        <nav class="nav">
+            <ul>
+                <li>
+                    <a href="#" class="nav-catalog-btn active">
+                        <i class="fa-solid fa-grid-2"></i> Catalogue
+                    </a>
+                </li>
+                <li><a href="starter.html" class="nav-item-link"><i class="fa-solid fa-box-open"></i> Starter Packs</a></li>
+                <li><a href="how-it-works.html" class="nav-item-link"><i class="fa-solid fa-circle-question"></i> How it Works</a></li>
+                <li><a href="location.html" class="nav-item-link"><i class="fa-solid fa-truck-fast"></i> Track Delivery</a></li>
+            </ul>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="support-card">
+                <i class="fa-solid fa-headset"></i>
+                <div>
+                    <h4>Need Help?</h4>
+                    <p>Contact support</p>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Mobile Header -->
+        <div class="mobile-header">
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <div class="mobile-logo">
+                <svg width="32" height="32" viewBox="0 0 48 48" fill="none">
+                    <rect width="48" height="48" rx="12" fill="#2563eb"/>
+                    <path d="M14 24L22 16L30 24L22 32L14 24Z" fill="white" opacity="0.9"/>
+                    <circle cx="34" cy="24" r="3" fill="#f97316"/>
+                </svg>
+                <span>TechStars</span>
+            </div>
+            <button class="mobile-cart-toggle" onclick="toggleCart()">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span class="mobile-cart-badge" id="mobileCartBadge">0</span>
+            </button>
+        </div>
+
+        <!-- Desktop Header -->
+        <header class="header">
+            <div class="header-top">
+                <div class="header-brand">
+                    <h1>My Materials</h1><i class="fa-brands fa-shopware" style="color: rgb(37, 99, 235);"></i>
+                </div>
+                <div class="header-actions">
+                    <button class="cart-trigger" id="cartToggle" onclick="toggleCart()">
+                        <div class="cart-icon-wrap">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                            <span class="cart-count" id="cartCount">0</span>
+                        </div>
+                        <span class="cart-label">My Kit</span>
+                    </button>
+                    <a href="#" class="location-btn">
+                        <span>Home</span>
+                    </a>
+                     <a href="#" class="location-btn">
+                        <span>Paternship</span>
+                    </a>
+                     <a href="homes.html" class="locations-btn">
+                        <span>Materials</span>
+                    </a>
+                     <a href="#" class="location-btn">
+                        <span>About Us</span>
+                    </a>
+                    <a href="#" class="location-btn">
+                        <span>Dashboard</span>
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Welcome Banner -->
+        <div class="welcome-banner">
+            <div class="welcome-content">
+                <div class="welcome-text">
+                    <div class="welcome-avatar">
+                        <img src="media/store media/danny.jpg" alt="" onerror="this.style.display='none'; this.parentElement.innerHTML='<span>BG</span>';">
+                    </div>
+                    <div>
+                        <h2>Welcome back, Belema <span class="wave">👋</span></h2>
+                        <p>Ready to continue your learning journey? Browse our latest track bundles.</p>
+                    </div>
+                </div>
+                <div class="welcome-stats">
+                    <div class="stat-pill">
+                        <i class="fa-solid fa-fire" style="color: var(--secondary);"></i>
+                        <span>5 Tracks Available</span>
+                    </div>
+                    <div class="stat-pill">
+                        <i class="fa-solid fa-tag" style="color: var(--success);"></i>
+                        <span>Up to 15% off bundles</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <main class="container">
+            <!-- Hero Carousel -->
+            <section class="hero-carousel" id="heroCarousel">
+                <div class="carousel-slides" id="carouselSlides">
+                    <div class="slide" style="--bg-img: url('newfolde')">
+                        <div class="slide-content">
+                            <span class="slide-badge"><i class="fa-solid fa-rocket"></i> Bootcamp Launch Special</span>
+                            <h1>Gear Up for<br>Tech Stars</h1>
+                            <p>Get official learning materials, hardware starter kits, and Tech Stars gear delivered right to your doorstep.</p>
+                            <button class="btn-primary" onclick="scrollToCatalogue()">
+                                Browse the Catalogue <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                        <div class="slide-visual">
+                            <div class="floating-card">
+                                <i class="fa-solid fa-laptop-code"></i>
+                                <span>Full Stack</span>
+                            </div>
+                            <div class="floating-card delay-1">
+                                <i class="fa-solid fa-brain"></i>
+                                <span>ML & AI</span>
+                            </div>
+                            <div class="floating-card delay-2">
+                                <i class="fa-solid fa-robot"></i>
+                                <span>Robotics</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="slide alt_bg" style="--bg-img: url('media/store-media/pic2.jpeg');">
+                        <div class="slide-content">
+                            <span class="slide-badge"><i class="fa-solid fa-percent"></i> Save Up To 15%</span>
+                            <h1>Web Dev Track<br>Bundles</h1>
+                            <p>Order your track workbook, laptop stickers, and hardware together to get an instant student discount!</p>
+                            <button class="btn-secondary" onclick="scrollToCatalogue()">
+                                View Bundles <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                        <div class="slide-visual">
+                            <div class="price-tag">
+                                <span class="price-old">₦35,000</span>
+                                <span class="price-new">₦30,000</span>
+                                <span class="price-save">SAVE ₦5,000</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-nav">
+                    <button class="carousel-arrow" onclick="prevSlide()"><i class="fa-solid fa-chevron-left"></i></button>
+                    <div class="carousel-dots">
+                        <div class="carousel-dot active" onclick="goToSlide(0)"></div>
+                        <div class="carousel-dot" onclick="goToSlide(1)"></div>
+                    </div>
+                    <button class="carousel-arrow" onclick="nextSlide()"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+                <div class="carousel-progress">
+                    <div class="carousel-progress-bar" id="carouselProgress"></div>
+                </div>
+            </section>
+
+            <!-- Catalogue Section -->
+            <section class="catalogue-section" id="catalogue">
+                <div class="section-header">
+                    <div class="section-title-wrap">
+                        <h2 class="section-title">Our Catalogue</h2>
+                        <p class="section-subtitle">Choose your track and start building your future</p>
+                    </div>
+                    <div class="results-count" id="resultsCount">Showing all 5 courses</div>
+                </div>
+
+                <!-- Filters -->
+                <div class="filter-section">
+                    <div class="search-box">
+                        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                        <input type="text" id="searchInput" placeholder="Search courses, skills, or technologies..." oninput="filterProducts()">
+                        <button class="search-clear" id="searchClear" onclick="clearSearch()"><i class="fa-solid fa-xmark"></i></button>
+                    </div>
+                    <div class="track-tabs" id="trackTabs">
+                        <button class="tab-btn active" data-track="all" onclick="filterTrack('all', this)">
+                            <i class="fa-solid fa-layer-group"></i> All Courses
+                        </button>
+                        <button class="tab-btn" data-track="Full Stack" onclick="filterTrack('Full Stack', this)">
+                            <i class="fa-solid fa-code"></i> Full Stack
+                        </button>
+                        <button class="tab-btn" data-track="Data Science" onclick="filterTrack('Data Science', this)">
+                            <i class="fa-solid fa-chart-line"></i> Data Science
+                        </button>
+                        <button class="tab-btn" data-track="UI/UX" onclick="filterTrack('UI/UX', this)">
+                            <i class="fa-solid fa-pen-nib"></i> UI/UX Design
+                        </button>
+                        <button class="tab-btn" data-track="Microsoft" onclick="filterTrack('Microsoft', this)">
+                            <i class="fa-solid fa-file-word"></i> Microsoft
+                        </button>
+                        <button class="tab-btn" data-track="Robotics" onclick="filterTrack('Robotics', this)">
+                            <i class="fa-solid fa-robot"></i> Robotics
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Products Grid -->
+                <div class="products-grid" id="productsGrid">
+                    <!-- Products rendered by JS -->
+                </div>
+
+                <!-- Empty State -->
+                <div class="empty-state" id="emptyState" style="display: none;">
+                    <div class="empty-icon">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                    <h3>No courses found</h3>
+                    <p>Try adjusting your search or filter to find what you're looking for.</p>
+                    <button class="btn-outline" onclick="resetFilters()">Clear Filters</button>
+                </div>
+            </section>
+
+            <!-- Features Section -->
+            <section class="features-section">
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: #eff6ff; color: #2563eb;">
+                        <i class="fa-solid fa-truck-fast"></i>
+                    </div>
+                    <h4>Fast Delivery</h4>
+                    <p>Get your kits delivered within 48 hours across campus</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: #fff7ed; color: #f97316;">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h4>Verified Quality</h4>
+                    <p>All materials vetted by CITE faculty and industry experts</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: #f0fdf4; color: #22c55e;">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <h4>Student Pricing</h4>
+                    <p>Exclusive discounts for TechStars bootcamp participants</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: #fef2f2; color: #ef4444;">
+                        <i class="fa-solid fa-rotate-left"></i>
+                    </div>
+                    <h4>Easy Returns</h4>
+                    <p>7-day return policy on all physical items</p>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>TechStars Store</h3>
+                    <p>Empowering the next generation of tech innovators at CITE.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Support</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 TechStars CITE. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="asset/homes.js"></script>
+</body>
+</html>
