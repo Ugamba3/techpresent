@@ -1,3 +1,24 @@
+// fading start
+const observerOptions = {
+  threshold: 0.08, // 10% of the element must be visible before it fades in
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("active");
+      // Optional: observer.unobserve(entry.target); // Check this if you only want it to fade in ONCE
+    } else {
+      entry.target.classList.remove("active"); // Remove this if you don't want it to fade back out
+    }
+  });
+}, observerOptions);
+
+// Target all elements with the .reveal class
+document.querySelectorAll(".fade-in").forEach((el) => observer.observe(el));
+
+// fading end
+
 /* =====================================================================
    PARTNERSHIPS PAGE JAVASCRIPT
    Two independent features:
@@ -6,7 +27,6 @@
    ===================================================================== */
 
 document.addEventListener("DOMContentLoaded", function () {
-
   /* ===================================================================
      1. SCROLL REVEAL ANIMATION
      We use an IntersectionObserver: the browser tells us when an
@@ -35,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Set the CSS transition-delay directly on the element.
     // Each card in the same group waits 100ms longer than the last.
-    el.style.transitionDelay = (staggerIndex * 100) + "ms";
+    el.style.transitionDelay = staggerIndex * 100 + "ms";
     staggerIndex++;
   });
 
@@ -56,14 +76,13 @@ document.addEventListener("DOMContentLoaded", function () {
   // fully reaches the bottom of the screen, which feels more natural.
   const revealObserver = new IntersectionObserver(handleReveal, {
     threshold: 0.15,
-    rootMargin: "0px 0px -80px 0px"
+    rootMargin: "0px 0px -80px 0px",
   });
 
   // Tell the observer to start watching every card
   revealElements.forEach(function (el) {
     revealObserver.observe(el);
   });
-
 
   /* ===================================================================
      2. CTA FORM VALIDATION
@@ -105,7 +124,7 @@ document.addEventListener("DOMContentLoaded", function () {
           return "Name can only contain letters.";
         }
         return ""; // empty string means "no error"
-      }
+      },
     },
     email: {
       input: emailInput,
@@ -118,7 +137,7 @@ document.addEventListener("DOMContentLoaded", function () {
           return "Please enter a valid email address.";
         }
         return "";
-      }
+      },
     },
     orgType: {
       input: orgTypeSelect,
@@ -128,7 +147,7 @@ document.addEventListener("DOMContentLoaded", function () {
           return "Please select an organisation type.";
         }
         return "";
-      }
+      },
     },
     interest: {
       input: interestSelect,
@@ -138,8 +157,8 @@ document.addEventListener("DOMContentLoaded", function () {
           return "Please select a partnership interest.";
         }
         return "";
-      }
-    }
+      },
+    },
   };
 
   // Runs one field's validate() function and updates its styling
@@ -199,5 +218,4 @@ document.addEventListener("DOMContentLoaded", function () {
     form.style.display = "none";
     thankYouMessage.style.display = "block";
   });
-
 });
