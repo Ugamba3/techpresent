@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materials</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="how-it-works.css">
+    <script src="https://kit.fontawesome.com/de94c8c05c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Toast Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-overlay" id="mobileOverlay" onclick="toggleMobileMenu()"></div>
+
+    <!-- Sidebar Navigation (Matches Catalogue Exactly) -->
+    <aside class="sidebar" id="sidebar">
+        <button class="mobile-menu-close" onclick="toggleMobileMenu()"><i class="fa-solid fa-xmark"></i></button>
+        <div class="logo">
+            <div class="logo-mark">
+              <div class="logo-mark">
+                <img src="store media/TechStars_Logo.png" width="100px" style="transform: translateY(20px);">
+            </div>
+            <h2>TechStars</h2>
+            <p class="logo-subtitle">Centre for Information and Telecommunication Engineering</p>
+        </div>
+
+        <nav class="nav">
+            <ul>
+                <li><a href="homes.html" class="nav-item-link"><i class="fa-solid fa-grid-2"></i> Catalogue</a></li>
+                <li><a href="starter.html" class="nav-item-link"><i class="fa-solid fa-box-open"></i> Starter Packs</a></li>
+                <li>
+                    <a href="how-it-works.html" class="nav-catalog-btn active">
+                        <i class="fa-solid fa-circle-question"></i> How it Works
+                    </a>
+                </li>
+                <li><a href="location.html" class="nav-item-link"><i class="fa-solid fa-truck-fast"></i> Track Delivery</a></li>
+            </ul>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="support-card">
+                <i class="fa-solid fa-headset"></i>
+                <div>
+                    <h4>Need Help?</h4>
+                    <p>Contact support</p>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Mobile Header -->
+        <div class="mobile-header">
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <div class="mobile-logo">
+                <svg width="32" height="32" viewBox="0 0 48 48" fill="none">
+                    <rect width="48" height="48" rx="12" fill="#2563eb"/>
+                    <path d="M14 24L22 16L30 24L22 32L14 24Z" fill="white" opacity="0.9"/>
+                    <circle cx="34" cy="24" r="3" fill="#f97316"/>
+                </svg>
+                <span>TechStars</span>
+            </div>
+            <div class="mobile-user">
+                <div class="mobile-user-pic">
+                    <img src="media/store media/danny.jpg" alt="" onerror="this.style.display='none'; this.parentElement.innerHTML='<span>BG</span>';">
+                </div>
+            </div>
+        </div>
+
+        <!-- Desktop Header -->
+        <header class="header">
+            <div class="header-top">
+                <div class="header-brand">
+                    <h1>How It Works</h1>
+                    <span class="header-badge">Guide</span>
+                </div>
+                <div class="header-actions">
+                    <a href="homes.html" class="back-btn">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        <span>Back to Store</span>
+                    </a>
+                    <div class="user-dropdown">
+                        <div class="user-icon">
+                            <div class="user-icon-pic">
+                                <img src="store media/danny.jpg" alt="Belema George" onerror="this.style.display='none'; this.parentElement.innerHTML='<span>BG</span>';">
+                            </div>
+                            <div class="user-icon-info">
+                                <h5>Belema George</h5>
+                                <p>Robotics Track</p>
+                            </div>
+                            <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem; color: var(--text-secondary);"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="container">
+            <!-- Hero -->
+            <section class="hero-section">
+                <div class="hero-content">
+                    <span class="hero-tag"><i class="fa-solid fa-lightbulb"></i> Getting Started</span>
+                    <h1>How Ordering Works</h1>
+                    <p>Getting your TechStars gear is simple. Follow these three easy steps and you'll be ready to build, create, and innovate in no time.</p>
+                </div>
+            </section>
+
+            <!-- Steps Card (Matching the image design) -->
+            <section class="steps-card-section">
+                <div class="steps-card">
+                    <div class="steps-card-header">
+                        <h2>How Ordering Works</h2>
+                        <div class="accent-line"></div>
+                    </div>
+                    <div class="steps-row">
+                        <div class="step-item">
+                            <div class="step-circle">1</div>
+                            <div class="step-text">
+                                <h3>Select Your Track Kit</h3>
+                                <p>Pick items aligned with your enrolled bootcamp age group.</p>
+                            </div>
+                        </div>
+                        <div class="step-divider"></div>
+                        <div class="step-item">
+                            <div class="step-circle">2</div>
+                            <div class="step-text">
+                                <h3>Add Student Details</h3>
+                                <p>Enter student name & course track at checkout.</p>
+                            </div>
+                        </div>
+                        <div class="step-divider"></div>
+                        <div class="step-item">
+                            <div class="step-circle">3</div>
+                            <div class="step-text">
+                                <h3>Campus Pickup or Direct Delivery</h3>
+                                <p>Collect at your local Tech Stars Centre or get home delivery.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Detailed Steps -->
+            <section class="detailed-steps">
+                <div class="section-header">
+                    <h2 class="section-title">Step-by-Step Breakdown</h2>
+                    <p class="section-subtitle">A closer look at each phase of your ordering journey</p>
+                </div>
+
+                <div class="detail-cards">
+                    <div class="detail-card">
+                        <div class="detail-card-visual" style="background: linear-gradient(135deg, #eff6ff, #dbeafe);">
+                            <div class="detail-number">01</div>
+                            <div class="detail-icon-wrap" style="background: #2563eb;">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </div>
+                        </div>
+                        <div class="detail-card-body">
+                            <h3>Browse & Select Your Kit</h3>
+                            <p>Head to the <a href="starter.html">Starter Packs</a> or <a href="homes.html">Catalogue</a> and find gear curated for your specific track. Whether you're into Robotics, Web Development, Data Science, or Design — we've got you covered.</p>
+                            <ul class="detail-list">
+                                <li><i class="fa-solid fa-check" style="color: #22c55e;"></i> Filter by your bootcamp track</li>
+                                <li><i class="fa-solid fa-check" style="color: #22c55e;"></i> View detailed descriptions and specs</li>
+                                <li><i class="fa-solid fa-check" style="color: #22c55e;"></i> Compare prices and bundles</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="detail-card reverse">
+                        <div class="detail-card-visual" style="background: linear-gradient(135deg, #fff7ed, #fed7aa);">
+                            <div class="detail-number">02</div>
+                            <div class="detail-icon-wrap" style="background: #f97316;">
+                                <i class="fa-solid fa-user-pen"></i>
+                            </div>
+                        </div>
+                        <div class="detail-card-body">
+                            <h3>Enter Your Details at Checkout</h3>
+                            <p>When you're ready, proceed to checkout. We'll need your student name, enrolled course track, and contact information to ensure your kit is prepared correctly.</p>
+                            <ul class="detail-list">
+                                <li><i class="fa-solid fa-check" style="color: #22c55e;"></i> Full name and student ID</li>
+                                <li><i class="fa-solid fa-check" style="color: #22c55e;"></i> Course track and batch</li>
+                                <li><i class="fa-solid fa-check" style="color: #22c55e;"></i> Phone number for delivery updates</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="detail-card">
+                        <div class="detail-card-visual" style="background: linear-gradient(135deg, #f0fdf4, #bbf7d0);">
+                            <div class="detail-number">03</div>
+                            <div class="detail-icon-wrap" style="background: #22c55e;">
+                                <i class="fa-solid fa-truck-fast"></i>
+                            </div>
+                        </div>
+                        <div class="detail-card-body">
+                            <h3>Choose Delivery or Campus Pickup</h3>
+                            <p>Decide how you want to receive your kit. Pick it up at the CITE TechStars Centre in Choba, or have it delivered straight to your doorstep anywhere in Port Harcourt.</p>
+                            <ul class="detail-list">
+                                <li><i class="fa-solid fa-check" style="color: #22c55e;"></i> Free campus pickup within 24 hours</li>
+                                <li><i class="fa-solid fa-check" style="color: #22c55e;"></i> Home delivery within 48 hours</li>
+                                <li><i class="fa-solid fa-check" style="color: #22c55e;"></i> Real-time tracking via <a href="location.html">Track Delivery</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ Accordion -->
+            <section class="faq-section">
+                <div class="section-header">
+                    <h2 class="section-title">Frequently Asked Questions</h2>
+                    <p class="section-subtitle">Got questions? We've got answers.</p>
+                </div>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            <span>How long does delivery take?</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Campus pickup is ready within 24 hours of order confirmation. Home delivery anywhere in Port Harcourt takes 24–48 hours. You'll receive a tracking number to monitor your package in real-time.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            <span>Can I order for a track I'm not enrolled in?</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes! While kits are curated for specific tracks, you're welcome to explore and purchase items from any category. Many students pick up extra tools for personal projects.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            <span>What payment methods are accepted?</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>We accept bank transfers, USSD payments, and mobile money. Student discounts are applied automatically at checkout when you verify with your student ID.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            <span>Is there a return policy?</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes, we offer a 7-day return policy on all physical items. Software licenses and digital products are non-refundable once activated. Contact our support team to initiate a return.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            <span>Do I get a discount for buying multiple items?</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Absolutely! Bundle discounts apply automatically: 10% off for 2+ items, 15% off for 3+ items, and 20% off for 5+ items. No coupon code needed.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Benefits Grid -->
+            <section class="benefits-section">
+                <div class="section-header">
+                    <h2 class="section-title">Why Order With Us?</h2>
+                    <p class="section-subtitle">The TechStars difference</p>
+                </div>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon" style="background: #eff6ff; color: #2563eb;">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <h4>Student Pricing</h4>
+                        <p>Exclusive discounts for all TechStars bootcamp participants. Save up to 20% on bundles.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon" style="background: #fff7ed; color: #f97316;">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <h4>Verified Quality</h4>
+                        <p>Every item is vetted by CITE faculty and industry experts. Only the best makes it to your kit.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon" style="background: #f0fdf4; color: #22c55e;">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+                        <h4>Fast Fulfillment</h4>
+                        <p>24-hour campus pickup or 48-hour home delivery. Your learning never has to wait.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon" style="background: #fef2f2; color: #ef4444;">
+                            <i class="fa-solid fa-headset"></i>
+                        </div>
+                        <h4>Dedicated Support</h4>
+                        <p>Our team is here to help with orders, returns, and technical questions every step of the way.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA Banner -->
+            <section class="cta-banner">
+                <div class="cta-content">
+                    <div class="cta-text">
+                        <h2>Ready to Get Started?</h2>
+                        <p>Browse our curated starter packs and catalogue. Your journey into tech starts with the right gear.</p>
+                    </div>
+                    <div class="cta-buttons">
+                        <a href="starter.html" class="btn-primary">
+                            <i class="fa-solid fa-box-open"></i> Browse Starter Packs
+                        </a>
+                        <a href="homes.html" class="btn-outline">
+                            <i class="fa-solid fa-grid-2"></i> View Catalogue
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>TechStars Store</h3>
+                    <p>Empowering the next generation of tech innovators at CITE.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Support</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 TechStars CITE. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="how-it-works.js"></script>
+</body>
+</html>
