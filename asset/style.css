@@ -1467,6 +1467,7 @@ a {
     gap: 8px;
   }
   .sidebar {
+    width: 230px;
     position: fixed;
     z-index: 50;
     box-shadow: var(--shadow);
