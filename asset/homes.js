@@ -1,4 +1,3 @@
-
 const products = [
     {
         id: 'fullstack',
