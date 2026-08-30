@@ -1423,7 +1423,7 @@ footer p {
         height: 100vh;
         flex-direction: column;
         justify-content: center;
-        background: var(--text-primary);
+        background: var(--color-text-primary);
         z-index: 9;
         transform: translateX(-200%);
         transition: all linear .4s;

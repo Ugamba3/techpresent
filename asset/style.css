@@ -1478,6 +1478,11 @@ a {
     transform: translateX(0%);
   }
 
+  .dashboard-nav a:hover,
+  .dashboard-nav a.active {
+    color: var(--surface);
+  }
+
   #notifBtn,
   #msgBtn{
     display: none;
