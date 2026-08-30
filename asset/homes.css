@@ -1184,7 +1184,6 @@ body {
     display: flex;
     transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 .slide {
     min-width: 100%;
     min-height: 420px;
@@ -1194,7 +1193,8 @@ body {
     justify-content: space-between;
     gap: 40px;
     position: relative;
-    background: linear-gradient(105deg, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.85) 45%, rgba(15, 23, 42, 0.4) 100%), var(--bg-img, linear-gradient(135deg, #1e3a8a, #2563eb));
+    /* Lowered opacity to 0.7, 0.5, and 0.2 to reveal the image */
+    background: linear-gradient(105deg, rgba(15, 23, 42, 0.7) 0%, rgba(15, 23, 42, 0.5) 45%, rgba(15, 23, 42, 0.2) 100%), var(--bg-img);
     background-size: cover;
     background-position: center;
     color: white;
@@ -1729,7 +1729,7 @@ body {
     line-height: 1.6;
     flex: 1;
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+     line-clamp: 3; 
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
@@ -1916,57 +1916,140 @@ body {
    FOOTER
    ============================================ */
 
-.site-footer {
-    background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+footer{
+  width: 100%;
+  background-color: #16243b;
+  color: var(--text-secondary);
+  padding: 50px 0;
+}
+.footer-col{
+width: 100%;
+margin-left: 22px;
+}
+footer .footer-top-row{
+  width: 88%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+footer img{
+  width: 160px;
+}
+
+footer p{
+  width: 300px;
+  font-size: 16px;
+  line-height: 24px;
+  margin: 16px 0;
+  text-align: left;
+}
+
+.footer-social{
+  display: flex;
+  gap: 10px;
+}
+
+.footer-social a{
+  text-decoration: none;
+  width: 30px;
+  height: 30px;
+  background: var(--primary);
+  color: var(--surface);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.foot-title{
+  font-size: 24px;
+  color: var(--primary);
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.foot-title::after{
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  content: '';
+  height: 3px;
+  width: 80px;
+  border: 9px;
+  background: var(--secondary);
+}
+
+.foot-link{
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+}
+
+.foot-link a{
+  text-decoration: none;
+  margin-top: 7px;
+  font-size: 16px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  transition: all linear .3s;
+}
+
+.foot-link a:hover,
+.foot-link a.active{
+  color: var(--surface);
+  transform: translateX(7px);
+}
+
+.footer-bottom{
+    width: 88%;
+    margin: 0 auto;
+    margin-top:60px;
+    padding-top:25px;
+    border-top:1px solid rgba(255,255,255,.15);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+.footer-bottom p{
+    width: fit-content;
+    color:#c8d2e3;
+    font-size:16px;
+    margin: 0;
+}
+.footer-cols{
+    color: White;
+    background-color:#3a5a8f;
+    border: none;
+    padding: 10px 5%;
+    border-radius: 10px;
+    width: 100%;
+    text-align: left;
+    font-size: 15px;
+}
+/* Styles all input and textarea placeholders */
+::placeholder {
+  color: #ffffff;
+  opacity: 1;
+}
+.footing{
+    background-color: #1d4ed8;
+    width: 100%;
     color: white;
-    padding: 48px 40px 24px;
-    margin-top: auto;
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 40px;
-    flex-wrap: wrap;
-    margin-bottom: 32px;
-}
-
-.footer-brand h3 {
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin-bottom: 8px;
-}
-
-.footer-brand p {
-    color: rgba(255,255,255,0.5);
-    font-size: 0.85rem;
-    max-width: 300px;
-}
-
-.footer-links {
-    display: flex;
-    gap: 24px;
-}
-
-.footer-links a {
-    color: rgba(255,255,255,0.6);
-    text-decoration: none;
-    font-size: 0.85rem;
-    font-weight: 500;
-    transition: var(--transition);
-}
-
-.footer-links a:hover {
-    color: white;
-}
-
-.footer-bottom {
-    border-top: 1px solid rgba(255,255,255,0.08);
-    padding-top: 24px;
+    padding: 8px 5%;
     text-align: center;
-    color: rgba(255,255,255,0.4);
-    font-size: 0.8rem;
+    border: none;
+    font-size: 15px;
+    border-radius: 10px;
+}
+
+
+.footer-bottom span{
+    color:#2563ff;
+    font-weight:700;
 }
 
 /* ============================================
