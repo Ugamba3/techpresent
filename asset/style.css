@@ -325,8 +325,9 @@ a {
   border: 2px solid var(--surface);
 }
 
+.topbar .collapse,
 .topbar .menu-bar{
-  /* display: none; */
+  display: none;
 }
 
 .divider-v {
@@ -1630,7 +1631,8 @@ a {
     .dashboard-nav.active{
         transform: translateX(0%);
     }
-    i.menu-bar{
+    .topbar .collapse,
+    .topbar .menu-bar {
         display: flex;
     }
     
