@@ -171,12 +171,7 @@ i.menu-bar{
 .overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-        to right,
-        rgba(0, 0, 0, .82),
-        rgba(0, 0, 0, .45),
-        rgba(0, 0, 0, .2)
-    );
+    background: rgba(0, 0, 0, .1);
 }
 
 @keyframes slideAnimation {
@@ -194,6 +189,7 @@ i.menu-bar{
     left: 70px;
     transform: translateY(-50%);
     color: #fff;
+    text-shadow: 1px 1px 5px #00000098;
     max-width: 650px;
 }
 
@@ -587,7 +583,7 @@ i.menu-bar{
 
 #video{
     width: 95%;
-    height: 60vh;
+    height: 70vh;
     margin: 0 auto;
 }
 
@@ -1067,12 +1063,18 @@ footer p {
     .navigation{
         position: absolute;
         top: 0;
-        right: 0;
-        width: 40%;
+        left: 0;
+        width: 46%;
         height: 100vh;
         flex-direction: column;
         justify-content: center;
         background: var(--text-primary);
+        z-index: 9;
+        transform: translateX(-200%);
+        transition: all linear .4s;
+    }
+    .navigation.active{
+        transform: translateX(0%);
     }
     .navigation nav{
         flex-direction: column;
