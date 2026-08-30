@@ -2260,3 +2260,15 @@ footer p{
         opacity: 0;
     }
 }
+
+/*=========================
+      RESPONSIVE
+==========================*/
+
+@media (max-width: 768px) {
+    
+    footer .footer-top-row {
+      row-gap: 20px;
+        grid-template-columns: 1fr;
+    }
+}

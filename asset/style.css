@@ -325,6 +325,10 @@ a {
   border: 2px solid var(--surface);
 }
 
+.topbar .menu-bar{
+  /* display: none; */
+}
+
 .divider-v {
   width: 1px;
   height: 28px;
@@ -1458,12 +1462,23 @@ a {
 }
 
 @media (max-width: 900px) {
+  .topbar-actions {
+    gap: 8px;
+  }
   .sidebar {
     position: fixed;
     z-index: 50;
     box-shadow: var(--shadow);
     transform: translateX(-100%);
     transition: transform 0.2s ease;
+  }
+  .sidebar.show {
+    transform: translateX(0%);
+  }
+
+  #notifBtn,
+  #msgBtn{
+    display: none;
   }
   .grid-2,
   .grid-3 {
@@ -1592,4 +1607,31 @@ a {
 .student-card--right .student-desc {
   max-width: 90%;
   margin-left: auto;
+}
+
+/*=========================
+      RESPONSIVE
+==========================*/
+
+@media (max-width: 768px) {
+    .dashboard-nav{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 46%;
+        height: 100vh;
+        flex-direction: column;
+        justify-content: center;
+        background: var(--text-primary);
+        z-index: 9;
+        transform: translateX(-200%);
+        transition: all linear .4s;
+    }
+    .dashboard-nav.active{
+        transform: translateX(0%);
+    }
+    i.menu-bar{
+        display: flex;
+    }
+    
 }

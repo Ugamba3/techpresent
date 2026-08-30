@@ -1406,3 +1406,41 @@ footer p {
     color: #2563ff;
     font-weight: 700;
 }
+
+/*=========================
+      RESPONSIVE
+==========================*/
+
+@media (max-width: 768px) {
+    header {
+        padding: 13px 20px;
+    }
+    .navigation{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 46%;
+        height: 100vh;
+        flex-direction: column;
+        justify-content: center;
+        background: var(--text-primary);
+        z-index: 9;
+        transform: translateX(-200%);
+        transition: all linear .4s;
+    }
+    .navigation.active{
+        transform: translateX(0%);
+    }
+    .navigation nav{
+        flex-direction: column;
+        margin-bottom: 30px;
+    }
+    i.menu-bar{
+        display: flex;
+    }
+    
+    footer .footer-top-row {
+      row-gap: 20px;
+        grid-template-columns: 1fr;
+    }
+}

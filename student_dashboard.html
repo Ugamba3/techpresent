@@ -103,6 +103,9 @@
 
             <div class="divider-v"></div>
 
+            <i class="fa-solid fa-chevron-right icon-btn collapse"></i>
+            <i class="fa-solid fa-bars icon-btn menu-bar"></i>
+
             <!-- NOTIFICATION BUTTON -->
             <div class="popover-wrap">
               <button class="icon-btn" id="notifBtn" aria-label="Notifications">
@@ -2148,5 +2151,24 @@
     </div>
 
     <script src="asset/script.js"></script>
+    
+    <script>
+        document.querySelector('.menu-bar').addEventListener('click', () => {
+            document.querySelector('.dashboard-nav').classList.toggle('active');
+            document.querySelector('.sidebar').classList.remove('show');
+              document.querySelector('.collapse').classList.replace('fa-chevron-left', 'fa-chevron-right');
+        })
+
+        document.querySelector('.collapse').addEventListener('click', () => {
+            document.querySelector('.sidebar').classList.toggle('show');
+
+            if(document.querySelector('.collapse').classList.contains('fa-chevron-right')){
+              document.querySelector('.collapse').classList.replace('fa-chevron-right', 'fa-chevron-left');
+            } else if(document.querySelector('.collapse').classList.contains('fa-chevron-left')){
+              document.querySelector('.collapse').classList.replace('fa-chevron-left', 'fa-chevron-right');
+            }
+            document.querySelector('.dashboard-nav').classList.remove('active');
+        })
+    </script>
   </body>
 </html>
