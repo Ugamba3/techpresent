@@ -1,11 +1,3 @@
-/* ============================================
-   TechStars How It Works — Interactive Guide
-   ============================================ */
-
-// ============================================
-// INITIALIZATION
-// ============================================
-
 document.addEventListener('DOMContentLoaded', () => {
     initScrollAnimations();
     initFaqAccordion();
