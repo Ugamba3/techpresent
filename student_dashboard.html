@@ -82,7 +82,7 @@
 
           <!-- MOBILE MENU TOGGLE -->
           <button class="mobile-menu-toggle" id="mobileMenuToggle" onclick="toggleMobileMenu()" aria-label="Open menu">
-            <i class="fa-solid fa-bars"></i>
+            <i class="fa-solid fa-bars menu-bar"></i>
           </button>
 
           <!-- SEARCH BAR -->
@@ -1048,21 +1048,20 @@
     
     <script>
         document.querySelector('.menu-bar').addEventListener('click', () => {
-            document.querySelector('.dashboard-nav').classList.toggle('active');
-            document.querySelector('.sidebar').classList.remove('show');
-              document.querySelector('.collapse').classList.replace('fa-chevron-left', 'fa-chevron-right');
+            // document.querySelector('.dashboard-nav').classList.toggle('active');
+            document.querySelector('.sidebar').classList.toggle('active');
+            
+            // document.body.addEventListener('click', () => {
+            //     // document.querySelector('.dashboard-nav').classList.toggle('active');
+            //     document.querySelector('.sidebar').classList.remove('active');
+            // })
         })
 
-        document.querySelector('.collapse').addEventListener('click', () => {
-            document.querySelector('.sidebar').classList.toggle('show');
-
-            if(document.querySelector('.collapse').classList.contains('fa-chevron-right')){
-              document.querySelector('.collapse').classList.replace('fa-chevron-right', 'fa-chevron-left');
-            } else if(document.querySelector('.collapse').classList.contains('fa-chevron-left')){
-              document.querySelector('.collapse').classList.replace('fa-chevron-left', 'fa-chevron-right');
-            }
-            document.querySelector('.dashboard-nav').classList.remove('active');
-        })
+        const menuBtn = document.querySelectorAll('.nav-item').forEach(element => {
+          element.addEventListener('click', () => {
+            document.querySelector('.sidebar').classList.remove('active');
+          })
+        });
     </script>
   </body>
 </html>
