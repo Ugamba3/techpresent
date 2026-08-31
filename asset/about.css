@@ -61,6 +61,23 @@ body{
   transition-delay: 2.1s;
 }
 
+i.menu-bar {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--text-secondary);
+    color: var(--surface);
+    cursor: pointer;
+    transition: all linear .3s;
+    position: relative;
+}
+i.menu-bar{
+        display: none;
+    }
+
 .fade-in.active {
   opacity: 1;
   transform: translateY(0);
@@ -1508,4 +1525,33 @@ footer p{
   .foot-link a {
     text-align: center;
   }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 13px 20px;
+    }
+    .navigation{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 46%;
+        height: 100vh;
+        flex-direction: column;
+        justify-content: center;
+        background: var(--text-primary);
+        z-index: 9;
+        transform: translateX(-200%);
+        transition: all linear .4s;
+    }
+    .navigation.active{
+        transform: translateX(0%);
+    }
+    .navigation nav{
+        flex-direction: column;
+        margin-bottom: 30px;
+    }
+    i.menu-bar{
+        display: flex;
+    }
 }

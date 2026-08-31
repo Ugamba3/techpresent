@@ -27,6 +27,7 @@
           <i class="fa-regular fa-envelope header-icon notification"></i>
         </div>
       </div>
+      <i class="fa-solid fa-bars menu-bar"></i>
     </div>
   </header>
 
@@ -530,5 +531,11 @@
   <script src="asset/about.js"></script>
   <script src="https://kit.fontawesome.com/13f42163ac.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <script>
+      document.querySelector('.menu-bar').addEventListener('click', () => {
+          document.querySelector('.navigation').classList.toggle('active');
+      })
+  </script>
 </body>
 </html>
