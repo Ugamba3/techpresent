@@ -135,7 +135,7 @@ function animateCounter(element) {
 document.addEventListener("DOMContentLoaded", () => {
   const slides = document.querySelectorAll(".slide");
   let currentSlide = 0;
-  const slideInterval = 5000; // Change image every 5 seconds (5000ms)
+  const slideInterval = 1000; // Change image every 5 seconds (5000ms)
 
   function nextSlide() {
     // Remove active class from current slide

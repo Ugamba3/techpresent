@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materials</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="asset/location.css">
+    <script src="https://kit.fontawesome.com/de94c8c05c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Toast Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-overlay" id="mobileOverlay" onclick="toggleMobileMenu()"></div>
+
+    <!-- Sidebar Navigation (Matches Catalogue) -->
+    <aside class="sidebar" id="sidebar">
+        <button class="mobile-menu-close" onclick="toggleMobileMenu()"><i class="fa-solid fa-xmark"></i></button>
+        <div class="logo">
+            <div class="logo-mark">
+                <img src="media/store media/TechStars_Logo.png" width="100px" style="transform: translateY(20px);">
+            </div>
+            <h2>TechStars</h2>
+            <p class="logo-subtitle">Centre for Information and Telecommunication Engineering</p>
+        </div>
+
+        <nav class="nav">
+            <ul>
+                <li><a href="homes.html" class="nav-item-link"><i class="fa-solid fa-grid-2"></i> Catalogue</a></li>
+                <li><a href="starter.html" class="nav-item-link"><i class="fa-solid fa-box-open"></i> Starter Packs</a></li>
+                <li><a href="how-it-works.html" class="nav-item-link"><i class="fa-solid fa-circle-question"></i> How it Works</a></li>
+                <li>
+                    <a href="location.html" class="nav-catalog-btn active">
+                        <i class="fa-solid fa-truck-fast"></i> Track Delivery
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="support-card">
+                <i class="fa-solid fa-headset"></i>
+                <div>
+                    <h4>Need Help?</h4>
+                    <p>Contact support</p>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Mobile Header -->
+        <div class="mobile-header">
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <div class="mobile-logo">
+                <svg width="32" height="32" viewBox="0 0 48 48" fill="none">
+                    <rect width="48" height="48" rx="12" fill="#2563eb"/>
+                    <path d="M14 24L22 16L30 24L22 32L14 24Z" fill="white" opacity="0.9"/>
+                    <circle cx="34" cy="24" r="3" fill="#f97316"/>
+                </svg>
+                <span>TechStars</span>
+            </div>
+            <div class="mobile-user">
+                <div class="mobile-user-pic">
+                    <img src="media/media/store media/danny.jpg" alt="" onerror="this.style.display='none'; this.parentElement.innerHTML='<span>BG</span>';">
+                </div>
+            </div>
+        </div>
+
+        <!-- Desktop Header -->
+        <header class="header">
+            <div class="header-top">
+                <div class="header-brand">
+                    <h1>Track Delivery</h1>
+                    <span class="header-badge">Live</span>
+                </div>
+                <div class="header-actions">
+                    <a href="homes.html" class="back-btn">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        <span>Back to Store</span>
+                    </a>
+                    <div class="user-dropdown">
+                        <div class="user-icon">
+                            <div class="user-icon-pic">
+                                <img src="media/store media/danny.jpg" alt="Belema George" onerror="this.style.display='none'; this.parentElement.innerHTML='<span>BG</span>';">
+                            </div>
+                            <div class="user-icon-info">
+                                <h5>Belema George</h5>
+                                <p>Robotics Track</p>
+                            </div>
+                            <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem; color: var(--text-secondary);"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Search Section -->
+        <section class="tracker-hero">
+            <div class="tracker-hero-content">
+                <div class="tracker-hero-text">
+                    <div class="tracker-icon">
+                        <i class="fa-solid fa-truck-fast"></i>
+                    </div>
+                    <h1>Track Your Order</h1>
+                    <p>Enter your tracking number for live updates, route visualization, and estimated delivery information.</p>
+                </div>
+                <div class="tracker-search-box">
+                    <div class="search-input-wrap">
+                        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                        <input type="text" id="trackingInput" placeholder="Enter your Tracking Number..." maxlength="20" value="TRK-2026-08-25-002">
+                        <button class="search-clear" id="searchClear" onclick="clearTrackingInput()"><i class="fa-solid fa-xmark"></i></button>
+                    </div>
+                    <button class="search-btn" onclick="searchTracking()">
+                        <i class="fa-solid fa-magnifying-glass-location"></i>
+                        <span>Track</span>
+                    </button>
+                </div>
+                <div class="recent-searches">
+                    <span class="recent-label">Recent:</span>
+                    <button class="recent-chip" onclick="setTracking('TRK-2026-08-25-002')">TRK-2026-08-25-002</button>
+                    <button class="recent-chip" onclick="setTracking('TRK-2026-08-20-001')">TRK-2026-08-20-001</button>
+                </div>
+            </div>
+            <div class="tracker-hero-visual">
+                <div class="orbit-animation">
+                    <div class="orbit-center">
+                        <i class="fa-solid fa-box"></i>
+                    </div>
+                    <div class="orbit-ring ring-1">
+                        <div class="orbit-dot"><i class="fa-solid fa-warehouse"></i></div>
+                    </div>
+                    <div class="orbit-ring ring-2">
+                        <div class="orbit-dot"><i class="fa-solid fa-truck"></i></div>
+                    </div>
+                    <div class="orbit-ring ring-3">
+                        <div class="orbit-dot"><i class="fa-solid fa-house"></i></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <main class="container">
+            <!-- Tracking Summary Card -->
+            <section class="tracking-summary-card">
+                <div class="summary-header">
+                    <div class="summary-id">
+                        <span class="label">Tracking Number</span>
+                        <h2 class="value" id="trackingNumber">TRK-2026-08-25-002</h2>
+                    </div>
+                    <div class="status-badge in-transit" id="statusBadge">
+                        <span class="status-pulse"></span>
+                        <span class="status-text">In Transit</span>
+                    </div>
+                </div>
+
+                <div class="summary-divider"></div>
+
+                <div class="summary-grid">
+                    <div class="summary-item">
+                        <div class="summary-icon" style="background: #eff6ff; color: #2563eb;">
+                            <i class="fa-solid fa-calendar-days"></i>
+                        </div>
+                        <div class="summary-text">
+                            <span class="label">Estimated Delivery</span>
+                            <p class="value-small" id="estDelivery">Sep 3, 2026</p>
+                        </div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-icon" style="background: #fff7ed; color: #f97316;">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div class="summary-text">
+                            <span class="label">Current Location</span>
+                            <p class="value-small" id="currentLocation">Rumuosi, Port Harcourt</p>
+                        </div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-icon" style="background: #f0fdf4; color: #22c55e;">
+                            <i class="fa-solid fa-truck"></i>
+                        </div>
+                        <div class="summary-text">
+                            <span class="label">Service Type</span>
+                            <p class="value-small">Standard Delivery</p>
+                        </div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-icon" style="background: #fef2f2; color: #ef4444;">
+                            <i class="fa-solid fa-weight-hanging"></i>
+                        </div>
+                        <div class="summary-text">
+                            <span class="label">Package Weight</span>
+                            <p class="value-small">2.5 kg</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="summary-divider"></div>
+
+                <div class="route-bar">
+                    <div class="route-point">
+                        <div class="route-dot origin"></div>
+                        <div class="route-info-text">
+                            <span class="label">Origin</span>
+                            <p>CITE, Choba, PH</p>
+                        </div>
+                    </div>
+                    <div class="route-line">
+                        <div class="route-progress" id="routeProgress" style="width: 60%;"></div>
+                        <div class="route-vehicle" id="routeVehicle" style="left: 60%;">
+                            <i class="fa-solid fa-truck"></i>
+                        </div>
+                    </div>
+                    <div class="route-point">
+                        <div class="route-dot destination"></div>
+                        <div class="route-info-text">
+                            <span class="label">Destination</span>
+                            <p>Laritel, Woji, PH</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Dashboard Grid -->
+            <div class="dashboard-grid">
+                <!-- Left Column -->
+                <div class="dashboard-left">
+                    <!-- Shipment Progress -->
+                    <section class="dashboard-card">
+                        <div class="card-header">
+                            <div class="card-header-icon" style="background: #fef2f2; color: #ef4444;">
+                                <i class="fa-solid fa-truck-fast"></i>
+                            </div>
+                            <h2>Shipment Progress</h2>
+                        </div>
+
+                        <div class="horizontal-timeline" id="horizontalTimeline">
+                            <div class="h-step completed" data-step="0">
+                                <div class="circle"><i class="fa-solid fa-check"></i></div>
+                                <span class="step-title">Order Received</span>
+                                <span class="step-date">Aug 21</span>
+                            </div>
+                            <div class="h-step completed" data-step="1">
+                                <div class="circle"><i class="fa-solid fa-check"></i></div>
+                                <span class="step-title">Picked Up</span>
+                                <span class="step-date">Aug 25</span>
+                            </div>
+                            <div class="h-step active" data-step="2">
+                                <div class="circle"><i class="fa-solid fa-truck"></i></div>
+                                <span class="step-title">In Transit</span>
+                                <span class="step-date">Aug 28</span>
+                            </div>
+                            <div class="h-step pending" data-step="3">
+                                <div class="circle"><i class="fa-solid fa-box-open"></i></div>
+                                <span class="step-title">Out for Delivery</span>
+                                <span class="step-date">Sep 3</span>
+                            </div>
+                            <div class="h-step pending final" data-step="4">
+                                <div class="circle"><i class="fa-solid fa-house"></i></div>
+                                <span class="step-title">Delivered</span>
+                                <span class="step-date">-</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Tracking Timeline -->
+                    <section class="dashboard-card">
+                        <div class="card-header">
+                            <div class="card-header-icon" style="background: #eff6ff; color: #2563eb;">
+                                <i class="fa-regular fa-clock"></i>
+                            </div>
+                            <h2>Tracking Timeline</h2>
+                        </div>
+
+                        <div class="vertical-timeline" id="verticalTimeline">
+                            <div class="v-step completed">
+                                <div class="v-icon"><i class="fa-solid fa-check"></i></div>
+                                <div class="v-content">
+                                    <h4>Order Placed</h4>
+                                    <p>Your order has been received and is being processed at CITE store.</p>
+                                </div>
+                                <div class="v-time">
+                                    <span>Aug 21</span>
+                                    <span class="time-detail">1:15 PM</span>
+                                </div>
+                            </div>
+
+                            <div class="v-step completed">
+                                <div class="v-icon"><i class="fa-solid fa-box"></i></div>
+                                <div class="v-content">
+                                    <h4>Package Prepared</h4>
+                                    <p>Items packed and labeled. Full Stack Dev kit + Robotics starter pack.</p>
+                                </div>
+                                <div class="v-time">
+                                    <span>Aug 23</span>
+                                    <span class="time-detail">10:30 AM</span>
+                                </div>
+                            </div>
+
+                            <div class="v-step completed">
+                                <div class="v-icon"><i class="fa-solid fa-hand-holding-box"></i></div>
+                                <div class="v-content">
+                                    <h4>Picked Up by Courier</h4>
+                                    <p>Package collected from CITE, Choba. En route to sorting facility.</p>
+                                </div>
+                                <div class="v-time">
+                                    <span>Aug 25</span>
+                                    <span class="time-detail">3:15 PM</span>
+                                </div>
+                            </div>
+
+                            <div class="v-step active">
+                                <div class="v-icon"><i class="fa-solid fa-truck-moving"></i></div>
+                                <div class="v-content">
+                                    <h4>In Transit</h4>
+                                    <p>Package is on the move! Currently passing through Rumuosi, Port Harcourt.</p>
+                                    <div class="live-update">
+                                        <span class="live-dot"></span>
+                                        <span>Live update — 2 mins ago</span>
+                                    </div>
+                                </div>
+                                <div class="v-time">
+                                    <span>Aug 28</span>
+                                    <span class="time-detail">1:15 PM</span>
+                                </div>
+                            </div>
+
+                            <div class="v-step upcoming">
+                                <div class="v-icon"><i class="fa-solid fa-box-open"></i></div>
+                                <div class="v-content">
+                                    <h4>Out for Delivery</h4>
+                                    <p>Package will be dispatched for final delivery to Laritel, Woji.</p>
+                                </div>
+                                <div class="v-time">
+                                    <span class="estimated">Est. Sep 3</span>
+                                    <span class="time-detail">9:00 AM</span>
+                                </div>
+                            </div>
+
+                            <div class="v-step upcoming">
+                                <div class="v-icon"><i class="fa-solid fa-house"></i></div>
+                                <div class="v-content">
+                                    <h4>Delivered</h4>
+                                    <p>Package will be handed over at the destination address.</p>
+                                </div>
+                                <div class="v-time">
+                                    <span class="estimated">Est. Sep 3</span>
+                                    <span class="time-detail">2:00 PM</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Right Column -->
+                <div class="dashboard-right">
+                    <!-- Route Map -->
+                    <section class="dashboard-card map-card">
+                        <div class="card-header">
+                            <div class="card-header-icon" style="background: #f0fdf4; color: #22c55e;">
+                                <i class="fa-solid fa-map-location-dot"></i>
+                            </div>
+                            <h2>Live Route Map</h2>
+                        </div>
+                        <div class="map-container">
+                            <iframe 
+                                id="routeMap"
+                                src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d3975.635!2d7.020!3d4.850!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x1069cd0f23f1d025%3A0x9a8115c76bd2ec6c!2sChoba%2C%20Port%20Harcourt!3m2!1d4.878!2d6.908!4m5!1s0x1069cd0f23f1d025%3A0x9a8115c76bd2ec6c!2sWoji%2C%20Port%20Harcourt!3m2!1d4.828!2d7.046!5e0!3m2!1sen!2sng!4v1787560983521!5m2!1sen!2sng" 
+                                width="100%" 
+                                height="320" 
+                                style="border:0; border-radius: 12px;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="strict-origin-when-cross-origin">
+                            </iframe>
+                            <div class="map-overlay">
+                                <div class="map-badge origin-badge">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>CITE, Choba</span>
+                                </div>
+                                <div class="map-badge dest-badge">
+                                    <i class="fa-solid fa-flag-checkered"></i>
+                                    <span>Laritel, Woji</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="route-stats">
+                            <div class="route-stat">
+                                <i class="fa-solid fa-route"></i>
+                                <div>
+                                    <span class="stat-value">12.4 km</span>
+                                    <span class="stat-label">Distance</span>
+                                </div>
+                            </div>
+                            <div class="route-stat">
+                                <i class="fa-solid fa-clock"></i>
+                                <div>
+                                    <span class="stat-value">28 min</span>
+                                    <span class="stat-label">Est. Time</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Package Details -->
+                    <section class="dashboard-card">
+                        <div class="card-header">
+                            <div class="card-header-icon" style="background: #fff7ed; color: #f97316;">
+                                <i class="fa-solid fa-cube"></i>
+                            </div>
+                            <h2>Package Details</h2>
+                        </div>
+                        <div class="details-list">
+                            <div class="detail-row">
+                                <div class="detail-icon"><i class="fa-solid fa-weight-hanging"></i></div>
+                                <div class="detail-text">
+                                    <span class="label">Weight</span>
+                                    <p>2.5 kg</p>
+                                </div>
+                            </div>
+                            <div class="detail-row">
+                                <div class="detail-icon"><i class="fa-solid fa-truck-fast"></i></div>
+                                <div class="detail-text">
+                                    <span class="label">Service</span>
+                                    <p>Standard Delivery</p>
+                                </div>
+                            </div>
+                            <div class="detail-row">
+                                <div class="detail-icon"><i class="fa-regular fa-calendar"></i></div>
+                                <div class="detail-text">
+                                    <span class="label">Order Date</span>
+                                    <p>Aug 21, 2026</p>
+                                </div>
+                            </div>
+                            <div class="detail-row">
+                                <div class="detail-icon"><i class="fa-regular fa-clock"></i></div>
+                                <div class="detail-text">
+                                    <span class="label">Order Time</span>
+                                    <p>1:15 PM</p>
+                                </div>
+                            </div>
+                            <div class="detail-row">
+                                <div class="detail-icon"><i class="fa-solid fa-box-archive"></i></div>
+                                <div class="detail-text">
+                                    <span class="label">Items</span>
+                                    <p>Full Stack Kit, Robotics Pack</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Delivery Contact -->
+                    <section class="dashboard-card contact-card">
+                        <div class="contact-avatar">
+                            <img src="" alt="" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fa-solid fa-user\'></i>';">
+                        </div>
+                        <div class="contact-info">
+                            <h4>Delivery Contact</h4>
+                            <p>Mr Isaac</p>
+                            <span><i class="fa-solid fa-phone"></i> +234 801 444 3456</span>
+                        </div>
+                        <button class="contact-btn" onclick="showToast('Coming Soon', 'Messaging feature will be available shortly.', 'warning')">
+                            <i class="fa-solid fa-message"></i>
+                        </button>
+                    </section>
+                </div>
+            </div>
+
+            <!-- Thank You Banner -->
+            <section class="thank-you-banner">
+                <div class="thank-you-content">
+                    <div class="thank-you-icon">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <div class="thank-you-text">
+                        <h2>Thank you for shopping with us, Belema!</h2>
+                        <p>Your order is on its way. We will send you another update as soon as your package reaches you. If you have any questions, reach out to our support team.</p>
+                    </div>
+                    <button class="btn-primary" onclick="showToast('Support', 'Redirecting to support page...', 'success')">
+                        <i class="fa-solid fa-headset"></i> Contact Support
+                    </button>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>TechStars Store</h3>
+                    <p>Empowering the next generation of tech innovators at CITE.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Support</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 TechStars CITE. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="asset/location.js"></script>
+</body>
+</html>
